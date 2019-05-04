@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Django app  users-用户管理 course-课程管理 organization-机构和教师管理 operation-用户操作管理">
+<meta name="keywords" content="html,css,jquery,python,django,linux,windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django项目实战">
+<meta property="og:url" content="http://blog.laohulab.com/Django/3085239228.html">
+<meta property="og:site_name" content="Happy Every Day">
+<meta property="og:description" content="Django app  users-用户管理 course-课程管理 organization-机构和教师管理 operation-用户操作管理">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-116.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-117.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-118.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-119.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-120.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-121.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-122.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-123.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-124.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-125.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-126.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-127.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-128.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-129.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-130.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-131.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-132.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-133.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-134.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-135.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-136.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-137.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-138.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-139.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-142.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-141.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-143.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-144.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-145.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-146.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-147.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-149.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-148.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-150.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-151.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-152.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-154.png">
+<meta property="og:updated_time" content="2019-05-01T06:46:36.228Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django项目实战">
+<meta name="twitter:description" content="Django app  users-用户管理 course-课程管理 organization-机构和教师管理 operation-用户操作管理">
+<meta name="twitter:image" content="http://blog.laohulab.com/images/pasted-116.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Happy Every Day" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://blog.laohulab.com/Django/3085239228">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Django项目实战 | Happy Every Day</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Happy Every Day</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">No Pain No Gain</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+            
+            
+            
+              
+              
+
+  
+  
+    
+  
+  <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>docs</a>
+
+  </li>
+
+
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+        
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">57</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/404.html" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+
+        
+        
+        
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/Django/3085239228.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jianhu Yong">
+      <meta itemprop="description" content="It's better when it's simple">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Happy Every Day">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django项目实战<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL3VzZXItbmFtZS9yZXBvLW5hbWUvdHJlZS9icmFuY2gtbmFtZS9zdWJkaXJlY3RvcnktbmFtZV9wb3N0cy9EamFuZ2/pobnnm67lrp7miJgubWQ=" title="编辑"><i class="fa fa-pencil"></i></span>
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 11:50:00" itemprop="dateCreated datePublished" datetime="2018-07-02T11:50:00+08:00">2018-07-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-01 14:46:36" itemprop="dateModified" datetime="2019-05-01T14:46:36+08:00">2019-05-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">41k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">37 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Django app</p>
+<ul>
+<li>users-用户管理</li>
+<li>course-课程管理</li>
+<li>organization-机构和教师管理</li>
+<li>operation-用户操作管理</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">C:\Users\jianhu.yong&gt;mkvirtualenv mxonline</span><br><span class="line">New python executable <span class="keyword">in</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe</span><br><span class="line">Installing setuptools, pip, wheel...done.</span><br><span class="line"></span><br><span class="line">(mxonline) C:\Users\jianhu.yong&gt;</span><br><span class="line">(mxonline) C:\Users\jianhu.yong&gt;pip install django==<span class="number">1.9</span></span><br><span class="line">Collecting django==<span class="number">1.9</span></span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/ea/<span class="number">9</span>b/b5a6360b3dfcd88d4bad70f59da26cbde4bdec395a31bb26dc840e806a50/Django<span class="number">-1.9</span>-py2.py3-none-any.whl (<span class="number">6.6</span>MB)</span><br><span class="line">    <span class="number">100</span>% |████████████████████████████████| <span class="number">6.6</span>MB <span class="number">79</span>kB/s</span><br><span class="line">Installing collected packages: django</span><br><span class="line">Successfully installed django<span class="number">-1.9</span></span><br><span class="line"></span><br><span class="line">(mxonline) C:\Users\jianhu.yong&gt;cd Downloads</span><br><span class="line">(mxonline) C:\Users\jianhu.yong\Downloads&gt;pip install MySQL_python<span class="number">-1.2</span><span class="number">.5</span>-cp27-none-win_amd64.whl</span><br><span class="line">Processing c:\users\jianhu.yong\downloads\mysql_python<span class="number">-1.2</span><span class="number">.5</span>-cp27-none-win_amd64.whl</span><br><span class="line">Installing collected packages: MySQL-python</span><br><span class="line">Successfully installed MySQL-python<span class="number">-1.2</span><span class="number">.5</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-116.png" alt="upload successful"><br><img src="/images/pasted-117.png" alt="upload successful"><br><img src="/images/pasted-118.png" alt="upload successful"></p>
+<p>数据库配置<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'mxonline'</span>,</span><br><span class="line">        <span class="string">'USER'</span>:<span class="string">'root'</span>,</span><br><span class="line">        <span class="string">'PASSWORD'</span>:<span class="string">'root'</span>,</span><br><span class="line">        <span class="string">'HOST'</span>:<span class="string">'127.0.0.1'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>新建数据库</p>
+<p><img src="/images/pasted-119.png" alt="upload successful"></p>
+<p>生成默认数据表<br><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">makemigrations</span></span><br><span class="line"><span class="attribute">migtate</span></span><br></pre></td></tr></table></figure></p>
+<p>userapp model设计<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; startapp users</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> startapp users C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Following files were affected </span><br><span class="line"> C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\tests.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\__init__.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\apps.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\admin.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\models.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\views.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\migrations\__init__.py</span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/pasted-120.png" alt="upload successful"><br>默认的user表不满足我们的需求，因此需要定制user表<br>自定义userprofile覆盖默认user表</p>
+<figure class="highlight python"><figcaption><span>users.model</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserProfile</span><span class="params">(AbstractUser)</span>:</span></span><br><span class="line">    nick_name = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u'昵称'</span>, default=<span class="string">""</span>)</span><br><span class="line">    birday = models.DateField(verbose_name=<span class="string">u"生日"</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    gender = models.CharField(max_length=<span class="number">5</span>, choices=((<span class="string">"male"</span>, <span class="string">u"男"</span>),(<span class="string">"female"</span>, <span class="string">u"女"</span>)), default=<span class="string">"female"</span>)</span><br><span class="line">    address = models.CharField(max_length=<span class="number">100</span>, default=<span class="string">u""</span>)</span><br><span class="line">    mobile = models.CharField(max_length=<span class="number">11</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    image = models.ImageField(upload_to=<span class="string">"image/%Y/%m/%m"</span>,default=<span class="string">u"image/default.png"</span>, max_length=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"用户信息"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.username</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>settings.py</span></figcaption><table><tr><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'users'</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">AUTH_USER_MODEL = <span class="string">"users.UserProfile"</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-121.png" alt="upload successful"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">(mxonline) C:\Users\jianhu.yong\Downloads&gt;pip install pillow</span><br><span class="line">Collecting pillow</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/<span class="number">48</span>/<span class="number">91</span>/f058672c494e186dc900bb6253e8cbde3307da17aed0a2d1ebcfb80ab766/Pillow<span class="number">-5.2</span><span class="number">.0</span>-cp27-cp27m-win_amd64.whl (<span class="number">1.5</span>MB)</span><br><span class="line">    <span class="number">100</span>% |████████████████████████████████| <span class="number">1.5</span>MB <span class="number">2.4</span>MB/s</span><br><span class="line">Installing collected packages: pillow</span><br><span class="line">Successfully installed pillow<span class="number">-5.2</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-122.png" alt="upload successful"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; makemigrations users</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> makemigrations users C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Migrations <span class="keyword">for</span> <span class="string">'users'</span>:</span><br><span class="line">  <span class="number">0001</span>_initial.py:</span><br><span class="line">    - Create model UserProfile</span><br><span class="line">Following files were affected </span><br><span class="line"> C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\migrations\<span class="number">0001</span>_initial.py</span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; migrate users</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> migrate users C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Operations to perform:</span><br><span class="line">  Apply all migrations: users</span><br><span class="line">Running migrations:</span><br><span class="line">  Rendering model states... DONE</span><br><span class="line">  Applying users<span class="number">.0001</span>_initial... OK</span><br><span class="line">The following content types are stale <span class="keyword">and</span> need to be deleted:</span><br><span class="line"></span><br><span class="line">    auth | user</span><br><span class="line"></span><br><span class="line">Any objects related to these content types by a foreign key will also</span><br><span class="line">be deleted. Are you sure you want to delete these content types?</span><br><span class="line">If yo<span class="string">u're unsure, answer '</span>no<span class="string">'.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Type '</span>yes<span class="string">' to continue, or '</span>no<span class="string">' to cancel:  yes</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Process finished with exit code 0</span></span><br></pre></td></tr></table></figure>
+<p>app设计需要避免循环引用(a调用b，b调用a，最后ab都无法执行)<br><img src="/images/pasted-123.png" alt="upload successful"><br><img src="/images/pasted-124.png" alt="upload successful"></p>
+<p>EmailVerifyRecord邮箱验证码设计<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">EmailVerifyRecord</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    code = models.CharField(max_length=<span class="number">20</span>, verbose_name=<span class="string">u"验证码"</span>)</span><br><span class="line">    email = models.EmailField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"邮箱"</span>)</span><br><span class="line">    send_type = models.CharField(choices=((<span class="string">"register"</span>, <span class="string">u"注册"</span>),(<span class="string">"forget"</span>, <span class="string">u"找回密码"</span>)), max_length=<span class="number">10</span>)</span><br><span class="line">    send_time = models.DateTimeField(default=datetime.now)</span><br><span class="line">    <span class="comment"># datetime.now() model编译时间生成默认时间</span></span><br><span class="line">    <span class="comment"># datetime.now classs实例化时生成的时间</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"邮箱验证码"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">```        </span><br><span class="line">PageBanner轮播图</span><br><span class="line">``` python</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Banner</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    title =  models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">u"标题"</span>)</span><br><span class="line">    image = models.ImageField(upload_to=<span class="string">"banner/%Y/%m/"</span>, verbose_name=<span class="string">u"轮播图"</span>, max_length=<span class="number">100</span>)</span><br><span class="line">    url = models.URLField(max_length=<span class="number">200</span>, verbose_name=<span class="string">u"访问地址"</span>)</span><br><span class="line">    index = models.IntegerField(default=<span class="number">100</span>,verbose_name=<span class="string">u"顺序"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"轮播图"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">```        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">courses models设计：</span><br><span class="line">新建app</span><br><span class="line"></span><br><span class="line">- courses课程基本信息</span><br><span class="line">- lesson 章节信息</span><br><span class="line">- video 视频信息</span><br><span class="line">- courseResouce 课程资源</span><br><span class="line"></span><br><span class="line">``` python models.py</span><br><span class="line"><span class="comment"># conding:utf8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"课程名"</span>)</span><br><span class="line">    desc = models.CharField(max_length=<span class="number">300</span>, verbose_name=<span class="string">u"课程描述"</span>)</span><br><span class="line">    detail = models.TextField(verbose_name=<span class="string">u"课程详情"</span>)</span><br><span class="line">    <span class="comment"># TextField不限制max_length</span></span><br><span class="line">    defree = models.CharField(choices=((<span class="string">"cj"</span>, <span class="string">u"初级"</span>),(<span class="string">"zj"</span>, <span class="string">u"中级"</span>),(<span class="string">"bj"</span>, <span class="string">u"高级"</span>)), max_length=<span class="number">2</span>)</span><br><span class="line">    learn_times = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"学习时长（分钟数）"</span>)</span><br><span class="line">    students= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"学习人数"</span>)</span><br><span class="line">    fav_nums= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"收藏人数"</span>)</span><br><span class="line">    image = models.ImageField(upload_to=<span class="string">"courses/%y/%m"</span>, verbose_name=<span class="string">u"封面图"</span>, max_length=<span class="number">100</span>)</span><br><span class="line">    click_nums = models.ImageField(default=<span class="number">0</span>, verbose_name=<span class="string">u"点击数"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"课程"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Lesson</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    course = models.ForeignKey(Course, verbose_name=<span class="string">u"课程"</span>)</span><br><span class="line">    name = models.CharField(max_length=<span class="number">100</span> , verbose_name=<span class="string">u"章节名"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"章节"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Video</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    lesson = models.ForeignKey(Lesson, verbose_name=<span class="string">u"章节"</span>)</span><br><span class="line">    name = models.CharField(max_length=<span class="number">100</span> , verbose_name=<span class="string">u"视频名"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"视频"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseResource</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    course = models.ForeignKey(Course, verbose_name=<span class="string">u"课程"</span>)</span><br><span class="line">    name = models.CharField(max_length=<span class="number">100</span> , verbose_name=<span class="string">u"名称"</span>)</span><br><span class="line">    download = models.FileField(upload_to=<span class="string">"course/resourse/%Y/%m"</span>, verbose_name=<span class="string">u"资源文件"</span>, max_length=<span class="number">100</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"课程资源"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; startapp organization</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> startapp organization C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Following files were affected </span><br><span class="line"> C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\models.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\admin.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\apps.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\views.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\tests.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\migrations\__init__.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\__init__.py</span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>CourseOrg 课程机构基本信息</li>
+<li>Teacher 教师基本信息</li>
+<li>CityDict 城市信息</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CityDict</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>, verbose_name=<span class="string">u"城市"</span>)</span><br><span class="line">    desc = models.CharField(max_length=<span class="number">200</span>, verbose_name=<span class="string">u"描述"</span>)</span><br><span class="line">    add_time= models.DateTimeField(default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"城市"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseOrg</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"机构名称"</span>)</span><br><span class="line">    desc = models.TextField(verbose_name=<span class="string">u"机构描述"</span>)</span><br><span class="line">    click_nums = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"点击数"</span>)</span><br><span class="line">    fav_nums= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"收藏数"</span>)</span><br><span class="line">    image= models.ImageField(upload_to=<span class="string">"org/%Y/%m"</span>, verbose_name=<span class="string">u"封面图"</span>, max_length=<span class="number">100</span>)</span><br><span class="line">    address = models.CharField(max_length=<span class="number">150</span>, verbose_name=<span class="string">u"机构地址"</span>)</span><br><span class="line">    city = models.ForeignKey(CityDict, verbose_name=<span class="string">u"所在城市"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"课程机构"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    org =  models.ForeignKey(CourseOrg, verbose_name=<span class="string">u"所属机构"</span>)</span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"教师名"</span>)</span><br><span class="line">    work_years= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"工作年限"</span>)</span><br><span class="line">    work_company = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"就职公司"</span>)</span><br><span class="line">    work_position = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"公司职位"</span>)</span><br><span class="line">    points = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"教学特点"</span>)</span><br><span class="line">    click_nums = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"点击数"</span>)</span><br><span class="line">    fav_nums = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"收藏数"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"教师"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">```        </span><br><span class="line"></span><br><span class="line">operation app设计</span><br><span class="line"></span><br><span class="line">- UserAsk 用户咨询</span><br><span class="line">- CourseComments 用户评论</span><br><span class="line">- UserFavorite 用户收藏</span><br><span class="line">- UserMessage 用户消息</span><br><span class="line">- UserCourse 用户学习的课程</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">``` python</span><br><span class="line">manage.py@MxOnline &gt; startapp operation</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> startapp operation C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Following files were affected </span><br><span class="line"> C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\migrations\__init__.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\apps.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\views.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\__init__.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\models.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\admin.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\tests.py</span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> users.models <span class="keyword">import</span> UserProfile</span><br><span class="line"><span class="keyword">from</span> courses.models <span class="keyword">import</span>  Course</span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAsk</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>, verbose_name=<span class="string">u"姓名"</span>)</span><br><span class="line">    mobile = models.CharField(max_length=<span class="number">11</span>, verbose_name=<span class="string">u"手机"</span>)</span><br><span class="line">    course_name= models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"课程名"</span>)</span><br><span class="line">    add_time= models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"用户咨询"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseComments</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''课程评论'''</span></span><br><span class="line">    user = models.ForeignKey(UserProfile, verbose_name=<span class="string">u"用户"</span>)</span><br><span class="line">    course = models.ForeignKey(Course, verbose_name=<span class="string">u"课程"</span>)</span><br><span class="line">    comments = models.CharField(max_length=<span class="number">200</span>, verbose_name=<span class="string">u"评论"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"课程评论"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserFavorite</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    user = models.ForeignKey(UserProfile, verbose_name=<span class="string">u"用户"</span>)</span><br><span class="line">    course = models.ForeignKey(Course, verbose_name=<span class="string">u"课程"</span>)</span><br><span class="line">    fav_id = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"数据ID"</span>)</span><br><span class="line">    fav_type= models.IntegerField(choices=((<span class="number">1</span>,<span class="string">"课程"</span>), (<span class="number">2</span>,<span class="string">"课程机构"</span>), (<span class="number">3</span>, <span class="string">"讲师"</span>)), default=<span class="number">1</span>, verbose_name=<span class="string">u"收藏类型"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"用户收藏"</span></span><br><span class="line">        verbose_name_plural =verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span>   <span class="title">UserMessage</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    user = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"接收用户"</span>)</span><br><span class="line">    message = models.CharField(max_length=<span class="number">500</span>, verbose_name=<span class="string">u"消息内容"</span>)</span><br><span class="line">    has_read = models.BooleanField(default=<span class="literal">False</span>, verbose_name=<span class="string">u"是否已读"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"用户消息"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserCourse</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    user = models.ForeignKey(UserProfile, verbose_name=<span class="string">u"用户"</span>)</span><br><span class="line">    course = models.ForeignKey(Course, verbose_name=<span class="string">u"课程"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"用户课程"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br></pre></td></tr></table></figure>
+<p>添加至install apps settings.py</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; makemigrations</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> makemigrations C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Migrations <span class="keyword">for</span> <span class="string">'courses'</span>:</span><br><span class="line">  <span class="number">0001</span>_initial.py:</span><br><span class="line">    - Create model Course</span><br><span class="line">    - Create model CourseResource</span><br><span class="line">    - Create model Lesson</span><br><span class="line">    - Create model Video</span><br><span class="line">Migrations <span class="keyword">for</span> <span class="string">'operation'</span>:</span><br><span class="line">  <span class="number">0001</span>_initial.py:</span><br><span class="line">    - Create model CourseComments</span><br><span class="line">    - Create model UserAsk</span><br><span class="line">    - Create model UserCourse</span><br><span class="line">    - Create model UserFavorite</span><br><span class="line">    - Create model UserMessage</span><br><span class="line">Migrations <span class="keyword">for</span> <span class="string">'users'</span>:</span><br><span class="line">  <span class="number">0002</span>_banner_emailverifyrecord.py:</span><br><span class="line">    - Create model Banner</span><br><span class="line">    - Create model EmailVerifyRecord</span><br><span class="line">Migrations <span class="keyword">for</span> <span class="string">'organization'</span>:</span><br><span class="line">  <span class="number">0001</span>_initial.py:</span><br><span class="line">    - Create model CityDict</span><br><span class="line">    - Create model CourseOrg</span><br><span class="line">    - Create model Teacher</span><br><span class="line">Following files were affected </span><br><span class="line"> C:\Users\jianhu.yong\PycharmProjects\MxOnline\organization\migrations\<span class="number">0001</span>_initial.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\users\migrations\<span class="number">0002</span>_banner_emailverifyrecord.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\operation\migrations\<span class="number">0001</span>_initial.py</span><br><span class="line">C:\Users\jianhu.yong\PycharmProjects\MxOnline\courses\migrations\<span class="number">0001</span>_initial.py</span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>新建apps包统一管理app</p>
+<p><img src="/images/pasted-125.png" alt="upload successful"></p>
+<p><img src="/images/pasted-126.png" alt="upload successful"></p>
+<p><img src="/images/pasted-127.png" alt="upload successful"></p>
+<p>默认打钩，会在导入模块内容之前加入apps.xxx</p>
+<p><img src="/images/pasted-128.png" alt="upload successful"><br>通过设置解决import出错问题</p>
+<p>但是python 运行会提示模块找不到错误</p>
+<p>settings.py</p>
+<p>后台管理系统</p>
+<ul>
+<li>权限管理</li>
+<li>少前端样式</li>
+<li>快速开发</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cDovLzEyNy4wLjAuMTo4MDAwL2FkbWlu" title="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin<i class="fa fa-external-link"></i></span></p>
+<p>创建diango admin后台用户出错<br><img src="/images/pasted-129.png" alt="upload successful"><br><img src="/images/pasted-130.png" alt="upload successful"></p>
+<p>重新修改下即可！</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; createsuperuser</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> createsuperuser C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Username:  admin</span><br><span class="line">Email address:  test@qq.com</span><br><span class="line">Warning: Password input may be echoed.</span><br><span class="line">Password:  admin123</span><br><span class="line">Warning: Password input may be echoed.</span><br><span class="line">Password (again):  admin123</span><br><span class="line">Superuser created successfully.</span><br></pre></td></tr></table></figure>
+<p>修改django admin修改为中文</p>
+<p>settings.py<br><figure class="highlight python"><figcaption><span>settings.py</span></figcaption><table><tr><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'zh-hans'</span></span><br><span class="line"></span><br><span class="line">LANGUAGE_CODE = <span class="string">'zh-hans'</span></span><br><span class="line"></span><br><span class="line">TIME_ZONE = <span class="string">'Asia/Shanghai'</span></span><br><span class="line"></span><br><span class="line">USE_I18N = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">USE_L10N = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#需要改成False，否侧django在数据库中存的时间为UTC国际时间！</span></span><br><span class="line">USE_TZ = <span class="literal">False</span></span><br></pre></td></tr></table></figure></p>
+<p>xadmin设置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">(mxonline) C:\Users\jianhu.yong\PycharmProjects\MxOnline&gt;pip install xadmin</span><br><span class="line">Collecting xadmin</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/<span class="number">1</span>d/e9/<span class="number">2</span>ac160c532d0d462142fa90aa86a0e317295e8d86fa4caf84d04f6e24c49/xadmin<span class="number">-0.6</span><span class="number">.1</span>.tar.gz (<span class="number">1.0</span>MB)</span><br><span class="line">    <span class="number">100</span>% |████████████████████████████████| <span class="number">1.0</span>MB <span class="number">19</span>kB/s</span><br><span class="line">Requirement already satisfied: setuptools <span class="keyword">in</span> c:\users\jianhu.yong\envs\mxonline\lib\site-packages (<span class="keyword">from</span> xadmin) (<span class="number">39.2</span><span class="number">.0</span>)</span><br><span class="line">Requirement already satisfied: django&lt;<span class="number">2.0</span><span class="number">.0</span>,&gt;=<span class="number">1.9</span><span class="number">.0</span> <span class="keyword">in</span> c:\users\jianhu.yong\envs\mxonline\lib\site-packages (<span class="keyword">from</span> xadmin) (<span class="number">1.9</span>)</span><br><span class="line">Collecting django-crispy-forms&gt;=<span class="number">1.6</span><span class="number">.0</span> (<span class="keyword">from</span> xadmin)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/<span class="number">9</span>a/<span class="number">05</span>/<span class="number">6</span>bad05742d185ec2fabfa4deab05cafde286eb3f383fba24b3674340aca2/django_crispy_forms<span class="number">-1.7</span><span class="number">.2</span>-py2.py3-none-any.whl (<span class="number">105</span>kB)</span><br><span class="line">    <span class="number">100</span>% |████████████████████████████████| <span class="number">112</span>kB <span class="number">14</span>kB/s</span><br><span class="line">Collecting django-formtools&gt;=<span class="number">1.0</span> (<span class="keyword">from</span> xadmin)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/<span class="number">97</span>/<span class="number">3</span>f/b8e04c41c028d5cdad651393abea1f686d846c717d8ab5d5ebe2974f711c/django_formtools<span class="number">-2.1</span>-py2.py3-none-any.whl (<span class="number">132</span>kB)</span><br><span class="line">    <span class="number">100</span>% |████████████████████████████████| <span class="number">133</span>kB <span class="number">25</span>kB/s</span><br><span class="line">Collecting httplib2==<span class="number">0.9</span><span class="number">.2</span> (<span class="keyword">from</span> xadmin)</span><br><span class="line">  Downloading https://files.pythonhosted.org/packages/ff/a9/<span class="number">5751</span>cdf17a70ea89f6dde23ceb1705bfb638fd8cee00f845308bf8d26397/httplib2<span class="number">-0.9</span><span class="number">.2</span>.tar.gz (<span class="number">205</span>kB)</span><br><span class="line">    <span class="number">100</span>% |████████████████████████████████| <span class="number">215</span>kB <span class="number">23</span>kB/s</span><br><span class="line">Building wheels <span class="keyword">for</span> collected packages: xadmin, httplib2</span><br><span class="line">  Running setup.py bdist_wheel <span class="keyword">for</span> xadmin ... done</span><br><span class="line">  Stored <span class="keyword">in</span> directory: C:\Users\jianhu.yong\AppData\Local\pip\Cache\wheels\<span class="number">4</span>f\d7\<span class="number">9</span>a\<span class="number">4699</span>d04c2239f4ad9764de8d236d9df1344574067dd61ab201</span><br><span class="line">  Running setup.py bdist_wheel <span class="keyword">for</span> httplib2 ... done</span><br><span class="line">  Stored <span class="keyword">in</span> directory: C:\Users\jianhu.yong\AppData\Local\pip\Cache\wheels\<span class="number">36</span>\f2\<span class="number">49</span>\<span class="number">5</span>adbf90fba31e02a7784e1147d7f8b6c4af3718739e568c8cb</span><br><span class="line">Successfully built xadmin httplib2</span><br><span class="line">Installing collected packages: django-crispy-forms, django-formtools, httplib2, xadmin</span><br><span class="line">Successfully installed django-crispy-forms<span class="number">-1.7</span><span class="number">.2</span> django-formtools<span class="number">-2.1</span> httplib2<span class="number">-0.9</span><span class="number">.2</span> xadmin<span class="number">-0.6</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'users'</span>,</span><br><span class="line">    <span class="string">'courses'</span>,</span><br><span class="line">    <span class="string">'organization'</span>,</span><br><span class="line">    <span class="string">'operation'</span>,</span><br><span class="line">    <span class="string">'xadmin'</span>,</span><br><span class="line">    <span class="string">'crispy_forms'</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">import</span>  xadmin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># url(r'^admin/', admin.site.urls),</span></span><br><span class="line">    url(<span class="string">r'^xadmin/'</span>, xadmin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-131.png" alt="upload successful"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; makemigrations</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> makemigrations C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">No changes detected</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br><span class="line">manage.py@MxOnline &gt; migrate</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> migrate C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Operations to perform:</span><br><span class="line">  Apply all migrations: xadmin, users, sessions, admin, auth, courses, contenttypes, organization, operation</span><br><span class="line">Running migrations:</span><br><span class="line">  Rendering model states... DONE</span><br><span class="line">  Applying xadmin<span class="number">.0001</span>_initial... OK</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><span class="exturl" data-url="aHR0cDovL3NzaHdzZmMuZ2l0aHViLmlvL3hhZG1pbi8=" title="http://sshwsfc.github.io/xadmin/">http://sshwsfc.github.io/xadmin/<i class="fa fa-external-link"></i></span></p>
+<p>基于源码安装xadmin</p>
+<ul>
+<li>可自定义</li>
+<li>功能最新 比pypi</li>
+</ul>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NzaHdzZmMveGFkbWlu" title="https://github.com/sshwsfc/xadmin">https://github.com/sshwsfc/xadmin<i class="fa fa-external-link"></i></span></p>
+<p><img src="/images/pasted-132.png" alt="upload successful"></p>
+<p><img src="/images/pasted-133.png" alt="upload successful"></p>
+<p><img src="/images/pasted-134.png" alt="upload successful"></p>
+<p><img src="/images/pasted-135.png" alt="upload successful"></p>
+<p><img src="/images/pasted-136.png" alt="upload successful"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line">sys.path.insert(<span class="number">0</span>, os.path.join(BASE_DIR, <span class="string">'apps'</span>))</span><br><span class="line">sys.path.insert(<span class="number">0</span>, os.path.join(BASE_DIR, <span class="string">'extra_apps'</span>))</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-137.png" alt="upload successful"></p>
+<p><img src="/images/pasted-138.png" alt="upload successful"></p>
+<p><img src="/images/pasted-139.png" alt="upload successful"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install future</span><br><span class="line">pip install six</span><br><span class="line">pip install django_import_export</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">manage.py@MxOnline &gt; makemigrations</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> makemigrations C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">No changes detected</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br><span class="line">manage.py@MxOnline &gt; migrate</span><br><span class="line"><span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\bin\runnerw.exe"</span> C:\Users\jianhu.yong\Envs\mxonline\Scripts\python.exe <span class="string">"C:\Program Files\JetBrains\PyCharm 2017.1.2\helpers\pycharm\django_manage.py"</span> migrate C:/Users/jianhu.yong/PycharmProjects/MxOnline</span><br><span class="line">Operations to perform:</span><br><span class="line">  Apply all migrations: xadmin, users, sessions, admin, auth, courses, contenttypes, organization, operation</span><br><span class="line">Running migrations:</span><br><span class="line">  Rendering model states... DONE</span><br><span class="line">  Applying xadmin<span class="number">.0002</span>_log... OK</span><br><span class="line">  Applying xadmin<span class="number">.0003</span>_auto_20160715_0100... OK</span><br></pre></td></tr></table></figure>
+<p>设置脚本文件模版neirong</p>
+<p><img src="/images/pasted-142.png" alt="upload successful"></p>
+<p>通过xadmin注册model</p>
+<p><img src="/images/pasted-141.png" alt="upload successful"></p>
+<p>注册剩余models</p>
+<p>xadmin全局配置</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> xadmin <span class="keyword">import</span>  views</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> EmailVerifyRecord,Banner</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseSetting</span><span class="params">(object)</span>:</span></span><br><span class="line">    enable_themes = <span class="literal">True</span></span><br><span class="line">    use_bootswatch = <span class="literal">True</span></span><br><span class="line">xadmin.site.register(views.BaseAdminView, BaseSetting)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GlobalSettings</span><span class="params">(object)</span>:</span></span><br><span class="line">    site_title = <span class="string">'MX后台管理系统'</span></span><br><span class="line">    site_footer = <span class="string">'MX在线网'</span></span><br><span class="line">xadmin.site.register(views.CommAdminView, GlobalSettings)</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-143.png" alt="upload successful"></p>
+<p>xadmin主题bug<br><code>[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] sslv3 alert handshake failure</code></p>
+<figure class="highlight python"><figcaption><span>xadmin\plugins\themes.py</span></figcaption><table><tr><td class="code"><pre><span class="line">flag = <span class="literal">False</span></span><br><span class="line"><span class="keyword">if</span> flag:</span><br><span class="line">    h = httplib2.Http()</span><br><span class="line">    resp, content = h.request(<span class="string">"https://bootswatch.com/api/3.json"</span>, <span class="string">'GET'</span>, <span class="string">''</span>,</span><br><span class="line">        headers=&#123;<span class="string">"Accept"</span>: <span class="string">"application/json"</span>, <span class="string">"User-Agent"</span>: self.request.META[<span class="string">'HTTP_USER_AGENT'</span>]&#125;)</span><br><span class="line">    <span class="keyword">if</span> six.PY3:</span><br><span class="line">        content = content.decode()</span><br><span class="line">    watch_themes = json.loads(content)[<span class="string">'themes'</span>]</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    content = requests.get(<span class="string">"https://bootswatch.com/api/3.json"</span>)</span><br><span class="line">    <span class="keyword">if</span> six.PY3:</span><br><span class="line">        content = content.text.decode()</span><br><span class="line">    watch_themes = json.loads(content.text)[<span class="string">'themes'</span>]</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pasted-144.png" alt="upload successful"><br>修改为中文显示</p>
+<figure class="highlight python"><figcaption><span>__init__.py</span></figcaption><table><tr><td class="code"><pre><span class="line">default_app_config = <span class="string">'operation.apps.OperationConfig'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>apps.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="keyword">from</span> django.apps <span class="keyword">import</span> AppConfig</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OperationConfig</span><span class="params">(AppConfig)</span>:</span></span><br><span class="line">    name = <span class="string">'operation'</span></span><br><span class="line">    verbose_name = <span class="string">u"用户操作"</span></span><br></pre></td></tr></table></figure>
+<p>首页和登录页的配置<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">url(<span class="string">r'^$'</span>, TemplateView.as_view(template_name=<span class="string">'index.html'</span>), name=<span class="string">'index'</span>),</span><br><span class="line">url(<span class="string">r'^login/$'</span>, TemplateView.as_view(template_name=<span class="string">'login.html'</span>), name=<span class="string">'login'</span>),</span><br></pre></td></tr></table></figure></p>
+<p>用户登录配置</p>
+<figure class="highlight python"><figcaption><span>urls.py</span></figcaption><table><tr><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># url(r'^admin/', admin.site.urls),</span></span><br><span class="line">    url(<span class="string">r'^xadmin/'</span>, xadmin.site.urls),</span><br><span class="line">    url(<span class="string">r'^$'</span>, TemplateView.as_view(template_name=<span class="string">'index.html'</span>), name=<span class="string">'index'</span>),</span><br><span class="line">    <span class="comment"># url(r'^login/$', TemplateView.as_view(template_name='login.html'), name='login'),</span></span><br><span class="line">    url(<span class="string">r'^login/$'</span>, user_login, name=<span class="string">'login'</span>),</span><br><span class="line"></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>views.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_login</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        user_name = request.POST.get(<span class="string">"username"</span>, <span class="string">''</span>)</span><br><span class="line">        pass_word = request.POST.get(<span class="string">"password"</span>, <span class="string">''</span>)</span><br><span class="line">        user = authenticate(username=user_name,password=pass_word)</span><br><span class="line">        <span class="keyword">if</span> user <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            login(request, user)</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">"index.html"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>, &#123;&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">elif</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>, &#123;&#125;)</span><br><span class="line">```        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">自定义auth认证变量</span><br><span class="line">重写authenticate方法</span><br><span class="line"></span><br><span class="line">``` python views.py</span><br><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> authenticate, login</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.backends <span class="keyword">import</span> ModelBackend</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> UserProfile</span><br><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Q</span><br><span class="line"><span class="comment"># 完成并集操作获得关系</span></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomBackend</span><span class="params">(ModelBackend)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">authenticate</span><span class="params">(self, username=None, password=None, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            user = UserProfile.objects.get(Q(username=username)|Q(email=username))</span><br><span class="line">            <span class="keyword">if</span> user.check_password(password):</span><br><span class="line">                <span class="keyword">return</span> user</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><figcaption><span>settings.py</span></figcaption><table><tr><td class="code"><pre><span class="line">AUTHENTICATION_BACKENDS = (</span><br><span class="line">    <span class="string">'users.views.CustomBackend'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>views方法基于类，不基于函数书写</p>
+<figure class="highlight python"><figcaption><span>views.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span>  django.views.generic.base <span class="keyword">import</span> View</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>, &#123;&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        user_name = request.POST.get(<span class="string">"username"</span>, <span class="string">''</span>)</span><br><span class="line">        pass_word = request.POST.get(<span class="string">"password"</span>, <span class="string">''</span>)</span><br><span class="line">        user = authenticate(username=user_name,password=pass_word)</span><br><span class="line">        <span class="keyword">if</span> user <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            login(request, user)</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">"index.html"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>, &#123;<span class="string">'msg'</span>:<span class="string">'用户名或密码错误！'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>form实现登入</p>
+<p><img src="/images/pasted-145.png" alt="upload successful"></p>
+<p>session &amp; cookies自动登录机制</p>
+<ul>
+<li>cookies 浏览器本地存储方式机制，可以存储很多信息，存储在某个域名之下，存储在本地不安全！</li>
+<li>session 服务器生成，存储在服务器端，安全，发送给用户，存储在cookies之中！</li>
+</ul>
+<p><img src="/images/pasted-146.png" alt="upload successful"><br><img src="/images/pasted-147.png" alt="upload successful"><br><img src="/images/pasted-149.png" alt="upload successful"><br><img src="/images/pasted-148.png" alt="upload successful"></p>
+<p>value 用户名密码加密字符串，服务器对session id取出value 并解密，实现自动登录 ！</p>
+<p><img src="/images/pasted-150.png" alt="upload successful"><br>注释掉 自动登录就失效了！</p>
+<p>用户注册</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;% load staticfiles %&#125;</span><br></pre></td></tr></table></figure>
+<p>验证码插件</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL21iaS9kamFuZ28tc2ltcGxlLWNhcHRjaGE=" title="https://github.com/mbi/django-simple-captcha">https://github.com/mbi/django-simple-captcha<i class="fa fa-external-link"></i></span></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Install django-simple-captcha via pip: pip install  django-simple-captcha</span><br><span class="line"></span><br><span class="line">Add captcha to the INSTALLED_APPS <span class="keyword">in</span> your settings.py</span><br><span class="line"></span><br><span class="line">Run python manage.py migrate</span><br><span class="line"></span><br><span class="line">Add an entry to your urls.py:</span><br><span class="line"></span><br><span class="line">urlpatterns += [</span><br><span class="line">    url(<span class="string">r'^captcha/'</span>, include(<span class="string">'captcha.urls'</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install django-simple-captcha==<span class="number">0.4</span><span class="number">.6</span></span><br></pre></td></tr></table></figure>
+<p>配置邮箱设置！<br><figure class="highlight python"><figcaption><span>settings.py</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mail Config</span></span><br><span class="line">EMAIL_HOST = <span class="string">'smtp.laohulab.com'</span></span><br><span class="line">EMAIL_PORT = <span class="number">25</span></span><br><span class="line">EMAIL_HOST_USER = <span class="string">'postmaster@qq.com'</span></span><br><span class="line">EMAIL_HOST_PASSWORD = <span class="string">'XXXX'</span></span><br><span class="line">EMAIL_USE_TLS =<span class="literal">False</span></span><br><span class="line">EMAIL_FROM = <span class="string">'postmaster@qq.com'</span></span><br></pre></td></tr></table></figure></p>
+<p>注册邮件发送<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line">__author__ = <span class="string">'jianhu.yong'</span></span><br><span class="line">__date__ = <span class="string">'2018/7/5 16:29'</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> Random</span><br><span class="line"><span class="keyword">from</span> django.core.mail <span class="keyword">import</span> send_mail</span><br><span class="line"><span class="keyword">from</span> users.models <span class="keyword">import</span> EmailVerifyRecord</span><br><span class="line"><span class="keyword">from</span> MxOnline.settings <span class="keyword">import</span> EMAIL_FROM</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_str</span><span class="params">(randomlength=<span class="number">8</span>)</span>:</span></span><br><span class="line">    str = <span class="string">''</span></span><br><span class="line">    chars = <span class="string">'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789'</span></span><br><span class="line">    length = len(chars) <span class="number">-1</span></span><br><span class="line">    random =Random()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(randomlength):</span><br><span class="line">        str += chars[random.randint(<span class="number">0</span>, length)]</span><br><span class="line">    <span class="keyword">return</span> str</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_register_email</span><span class="params">(email, send_type=<span class="string">'register'</span>)</span>:</span></span><br><span class="line">    email_record = EmailVerifyRecord()</span><br><span class="line">    code = random_str(<span class="number">16</span>)</span><br><span class="line">    email_record.code = code</span><br><span class="line">    email_record.email = email</span><br><span class="line">    email_record.send_type = send_type</span><br><span class="line">    email_record.save()</span><br><span class="line"></span><br><span class="line">    email_title = <span class="string">''</span></span><br><span class="line">    email_body = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> send_type == <span class="string">'register'</span>:</span><br><span class="line">        email_title = <span class="string">'MX在线网注册激活链接'</span></span><br><span class="line">        email_body = <span class="string">'请点击下面的链接激活你的账号：http://127.0.0.1:8000/active/&#123;0&#125;'</span>.format(code)</span><br><span class="line">        send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])</span><br><span class="line">        <span class="keyword">if</span> send_status:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">elif</span> send_type == <span class="string">'forget'</span>:</span><br><span class="line">        email_title = <span class="string">'MX在线网密码重置链接'</span></span><br><span class="line">        email_body = <span class="string">'请点击下面的链接重置密码：http://127.0.0.1:8000/reset/&#123;0&#125;'</span>.format(code)</span><br><span class="line">        send_status = send_mail(email_title, email_body, EMAIL_FROM, [email])</span><br><span class="line">        <span class="keyword">if</span> send_status:</span><br><span class="line">            <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
+<p>激活用户设置<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">    url(<span class="string">r'^active/(?P&lt;active_code&gt;\w+)/$'</span>, ActiveUserView.as_view(), name=<span class="string">'user_active'</span>),</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ActiveUserView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request, active_code)</span>:</span></span><br><span class="line">        all_records = EmailVerifyRecord.objects.filter(code=active_code)</span><br><span class="line">        <span class="keyword">if</span> all_records:</span><br><span class="line">            <span class="keyword">for</span> record <span class="keyword">in</span> all_records:</span><br><span class="line">                email = record.email</span><br><span class="line">                user = UserProfile.objects.get(email=email)</span><br><span class="line">                user.is_active = <span class="literal">True</span></span><br><span class="line">                user.save()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'active_fail.html'</span>)</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>)</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line">密码找回</span><br><span class="line">``` python</span><br><span class="line">    url(<span class="string">r'^forget/$'</span>, ForgetPwdView.as_view(), name=<span class="string">'forget_pwd'</span>),</span><br><span class="line">    url(<span class="string">r'^reset/(?P&lt;active_code&gt;\w+)/$'</span>, ResetView.as_view(), name=<span class="string">'reset_pwd'</span>),</span><br><span class="line">    url(<span class="string">r'^modify/$'</span>, ModifyPwdView.as_view(), name=<span class="string">'modify_pwd'</span>),</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegisterView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        register_form = RegisterForm()</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'register.html'</span>, &#123;<span class="string">'register_form'</span>:register_form&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        register_form = RegisterForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> register_form.is_valid():</span><br><span class="line">            user_name = request.POST.get(<span class="string">'email'</span>, <span class="string">''</span>)</span><br><span class="line">            <span class="keyword">if</span> UserProfile.objects.filter(email=user_name):</span><br><span class="line">                <span class="keyword">return</span>  render(request, <span class="string">'register.html'</span>, &#123;<span class="string">'msg'</span>:<span class="string">'用户已存在！'</span>,<span class="string">'register_form'</span>: register_form&#125;)</span><br><span class="line">            pass_word = request.POST.get(<span class="string">'password'</span>, <span class="string">''</span>)</span><br><span class="line">            user_profile =UserProfile()</span><br><span class="line">            user_profile.username = user_name</span><br><span class="line">            user_profile.email = user_name</span><br><span class="line">            user_profile.is_active = <span class="literal">False</span></span><br><span class="line">            user_profile.password = make_password(pass_word)</span><br><span class="line">            user_profile.save()</span><br><span class="line"></span><br><span class="line">            send_register_email(user_name, <span class="string">'register'</span>)</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'register.html'</span>, &#123;<span class="string">'register_form'</span>: register_form&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ForgetPwdView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        forgetpwd_form = ForgetPwdForm()</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'forgetpwd.html'</span>, &#123;<span class="string">'forgetpwd_form'</span>:forgetpwd_form&#125;)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        forgetpwd_form = ForgetPwdForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> forgetpwd_form.is_valid():</span><br><span class="line">            email = request.POST.get(<span class="string">'email'</span>, <span class="string">''</span>)</span><br><span class="line">            send_register_email(email, <span class="string">'forget'</span>)</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'send_success.html'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'forgetpwd.html'</span>, &#123;<span class="string">'forgetpwd_form'</span>:forgetpwd_form&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResetView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request, active_code)</span>:</span></span><br><span class="line">        all_records = EmailVerifyRecord.objects.filter(code=active_code)</span><br><span class="line">        <span class="keyword">if</span> all_records:</span><br><span class="line">            <span class="keyword">for</span> record <span class="keyword">in</span> all_records:</span><br><span class="line">                email = record.email</span><br><span class="line">                <span class="keyword">return</span> render(request, <span class="string">'password_reset.html'</span>, &#123;<span class="string">'email'</span>:email&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'active_fail.html'</span>)</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ModifyPwdView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        modify_form = ModifyPwdForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> modify_form.is_valid():</span><br><span class="line">            pwd1 = request.POST.get(<span class="string">'password1'</span>, <span class="string">''</span>)</span><br><span class="line">            pwd2 = request.POST.get(<span class="string">'password2'</span>, <span class="string">''</span>)</span><br><span class="line">            email = request.POST.get(<span class="string">'email'</span>, <span class="string">''</span>)</span><br><span class="line">            <span class="keyword">if</span> pwd1 != pwd2:</span><br><span class="line">                <span class="keyword">return</span> render(request, <span class="string">'password_reset.html'</span>, &#123;<span class="string">'email'</span>:email, <span class="string">'msg'</span>:<span class="string">'密码不一致！'</span>&#125;)</span><br><span class="line">            user = UserProfile.objects.get(email=email)</span><br><span class="line">            user.password = make_password(pwd2)</span><br><span class="line">            user.save()</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            email = request.POST.get(<span class="string">'email'</span>, <span class="string">''</span>)</span><br><span class="line">            <span class="keyword">return</span> render(request, <span class="string">'password_reset'</span>, &#123;<span class="string">'email'</span>:email, <span class="string">'modify_form'</span>:modify_form&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>MEDIA_URL配置 调用静态image<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        <span class="string">'DIRS'</span>: [os.path.join(BASE_DIR, <span class="string">'templates'</span>)]</span><br><span class="line">        ,</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="literal">True</span>,</span><br><span class="line">        <span class="string">'OPTIONS'</span>: &#123;</span><br><span class="line">            <span class="string">'context_processors'</span>: [</span><br><span class="line">                <span class="string">'django.template.context_processors.debug'</span>,</span><br><span class="line">                <span class="string">'django.template.context_processors.request'</span>,</span><br><span class="line">                <span class="string">'django.contrib.auth.context_processors.auth'</span>,</span><br><span class="line">                <span class="string">'django.contrib.messages.context_processors.messages'</span>,</span><br><span class="line">                <span class="string">'django.core.context_processors.media'</span></span><br><span class="line">            ],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># upload setting</span></span><br><span class="line">MEDIA_URL = <span class="string">'/media/'</span></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media'</span>)</span><br></pre></td></tr></table></figure>
+<pre><code># 配置上传文件的访问处理函数
+url(r&apos;^media/(?P&lt;path&gt;.*)$&apos;, serve, {&apos;document_root&apos;:MEDIA_ROOT}),
+</code></pre><p>from django.views.static import  serve<br>from MxOnline.settings import MEDIA_ROOT    </p>
+<p>django分页功能！<br><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2phbWVzcGFjaWxlby9kamFuZ28tcHVyZS1wYWdpbmF0aW9u" title="https://github.com/jamespacileo/django-pure-pagination">https://github.com/jamespacileo/django-pure-pagination<i class="fa fa-external-link"></i></span></p>
+<p><img src="/images/pasted-151.png" alt="upload successful"><br>p = Paginator(all_orgs,  request=request)<br>p = Paginator(all_orgs, 5,  request=request)</p>
+<p><img src="/images/pasted-152.png" alt="upload successful"><br>使用默认，分页样式无法控制</p>
+<p>列表筛选功能</p>
+<p>机构排名和课程学习人数排序</p>
+<p>modelform提交</p>
+<p>外键关系<br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&#123;&#123; course.lesson_set.all.count &#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> &#123;%  for user_course in course.usercourse_set.all %&#125;</span><br><span class="line">                            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"pic"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">width</span>=<span class="string">"40"</span> <span class="attr">height</span>=<span class="string">"40"</span> <span class="attr">src</span>=<span class="string">"&#123;&#123; MEDIA_URL &#125;&#125;&#123;&#123; user_course.user.image &#125;&#125;"</span>/&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                            &#123;% endfor %&#125;</span><br><span class="line">                            </span><br><span class="line">                            </span><br><span class="line">    def get_zj_nums(self):</span><br><span class="line">        return self.lesson_set.all().count()</span><br><span class="line"></span><br><span class="line">    def get_learn_users(self):</span><br><span class="line">        return self.usercourse_set.all()[:5]</span><br><span class="line">        </span><br><span class="line">&#123;&#123;course.get_zj_nums&#125;&#125;</span><br><span class="line">&#123;% for usercourse in course.get_learn_users %&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用户上传文件<br>html<br>enctype=”multipart/form-data”</p>
+<p>后端：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UploadImageView</span><span class="params">(LoginRequiredMixin, View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        image_form = UploadImageForm(request.POST, request.FILES)</span><br><span class="line">        <span class="keyword">if</span> image_form.is_valid():</span><br><span class="line">            image = image_form.cleaned_data[<span class="string">'image'</span>]</span><br><span class="line">            request.user.image = image</span><br><span class="line">            request.user.save()</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># def post(self, request):</span></span><br><span class="line">    <span class="comment">#     image_form = UploadImageForm(request.POST, request.FILES, instance=request.user)</span></span><br><span class="line">    <span class="comment">#     if image_form.is_valid():</span></span><br><span class="line">    <span class="comment">#         image_form.save()</span></span><br><span class="line">```    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="number">4040</span> <span class="number">500</span>配置    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">django xadmin 进阶开发</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">debug 改成true时候</span><br><span class="line">注释</span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">'static'</span>)</span><br><span class="line"> url(<span class="string">r'^static/(?P&lt;path&gt;.*)$'</span>, serve, &#123;<span class="string">'document_root'</span>:STATIC_ROOT&#125;),</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">model icon配置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">model_icon = <span class="string">'fa fa-user'</span></span><br><span class="line">开源图标库</span><br><span class="line">https://fontawesome.com/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![upload successful](/images/pasted<span class="number">-153.</span>png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">倒叙排列</span><br><span class="line">ordering = [<span class="string">'-click_nums'</span>]</span><br><span class="line"></span><br><span class="line">设置字段只读</span><br><span class="line">readonly_fields = [<span class="string">'click_nums'</span>, <span class="string">'fav_nums'</span>]</span><br><span class="line"></span><br><span class="line">移除某个字段显示</span><br><span class="line">exclude = [<span class="string">'fav_nums'</span>]</span><br><span class="line"></span><br><span class="line">需要注意是否和readonly_fields冲突</span><br><span class="line"></span><br><span class="line">关联外键字段，添加搜索功能（针对外键数量很多是，自动搜索方便）</span><br><span class="line">relfield_style = <span class="string">'fk-ajax'</span></span><br><span class="line"></span><br><span class="line">报错</span><br><span class="line">TypeError: Related Field got invalid lookup: icontains</span><br><span class="line"><span class="number">1</span></span><br><span class="line">原因</span><br><span class="line">出错原因是你配置的ModelAdmin类中，元组search_fields中的项不是字符类型。</span><br><span class="line"></span><br><span class="line">解决</span><br><span class="line">删除元组search_fields中类型不符的项</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">xadmin inline模式</span><br><span class="line">``` python</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LessonInline</span><span class="params">(object)</span>:</span></span><br><span class="line">    model = Lesson</span><br><span class="line">    extra = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseAdmin</span><span class="params">(object)</span>:</span></span><br><span class="line">    list_display = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    search_fields = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>]</span><br><span class="line">    list_filter = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    ordering = [<span class="string">'-click_nums'</span>]</span><br><span class="line">    readonly_fields = [<span class="string">'click_nums'</span>]</span><br><span class="line">    exclude = [<span class="string">'fav_nums'</span>]</span><br><span class="line">    inlines = [LessonInline]</span><br><span class="line">xadmin.site.register(Course, CourseAdmin)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LessonInline</span><span class="params">(object)</span>:</span></span><br><span class="line">    model = Lesson</span><br><span class="line">    extra = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseResourceInline</span><span class="params">(object)</span>:</span></span><br><span class="line">    model = CourseResource</span><br><span class="line">    extra = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseAdmin</span><span class="params">(object)</span>:</span></span><br><span class="line">    list_display = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    search_fields = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>]</span><br><span class="line">    list_filter = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    ordering = [<span class="string">'-click_nums'</span>]</span><br><span class="line">    readonly_fields = [<span class="string">'click_nums'</span>]</span><br><span class="line">    exclude = [<span class="string">'fav_nums'</span>]</span><br><span class="line">    inlines = [LessonInline, CourseResourceInline]</span><br><span class="line">xadmin.site.register(Course, CourseAdmin)</span><br></pre></td></tr></table></figure></p>
+<p>同一个model 后台注册2个管理器，分别管理同一张表！<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    course_org = models.ForeignKey(CourseOrg, verbose_name=<span class="string">u"课程机构"</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"课程名"</span>)</span><br><span class="line">    desc = models.CharField(max_length=<span class="number">300</span>, verbose_name=<span class="string">u"课程描述"</span>)</span><br><span class="line">    detail = models.TextField(verbose_name=<span class="string">u"课程详情"</span>)</span><br><span class="line">    teacher = models.ForeignKey(Teacher, verbose_name=<span class="string">u"讲师"</span>, null=<span class="literal">True</span>,  blank=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># TextField不限制max_length</span></span><br><span class="line">    degree = models.CharField(choices=((<span class="string">"cj"</span>, <span class="string">u"初级"</span>),(<span class="string">"zj"</span>, <span class="string">u"中级"</span>),(<span class="string">"bj"</span>, <span class="string">u"高级"</span>)), max_length=<span class="number">2</span>, verbose_name=<span class="string">u"难度"</span>)</span><br><span class="line">    learn_times = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"学习时长（分钟数）"</span>)</span><br><span class="line">    students= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"学习人数"</span>)</span><br><span class="line">    fav_nums= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"收藏人数"</span>)</span><br><span class="line">    image = models.ImageField(upload_to=<span class="string">"courses/%y/%m"</span>, verbose_name=<span class="string">u"封面图"</span>, max_length=<span class="number">100</span>)</span><br><span class="line">    click_nums = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"点击数"</span>)</span><br><span class="line">    category = models.CharField(default=<span class="string">u"后端开发"</span>, max_length=<span class="number">20</span>, verbose_name=<span class="string">u"课程类别"</span>)</span><br><span class="line">    tag = models.CharField(default=<span class="string">""</span>, max_length=<span class="number">10</span>, verbose_name= <span class="string">u"课程标签"</span>)</span><br><span class="line">    youneed_know = models.CharField(max_length=<span class="number">300</span>, verbose_name=<span class="string">u"课程须知"</span>, default=<span class="string">""</span>)</span><br><span class="line">    teacher_tell = models.CharField(max_length=<span class="number">300</span> , verbose_name=<span class="string">u"老师告诉你学到什么"</span>, default=<span class="string">""</span>)</span><br><span class="line">    is_banner = models.BooleanField(default=<span class="literal">False</span>, verbose_name=<span class="string">u"是否轮播"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_zj_nums</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.lesson_set.all().count()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_learn_users</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.usercourse_set.all()[:<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"课程"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BannerCourse</span><span class="params">(Course)</span>:</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"轮播课程"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line">        proxy = <span class="literal">True</span></span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseAdmin</span><span class="params">(object)</span>:</span></span><br><span class="line">    list_display = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    search_fields = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>]</span><br><span class="line">    list_filter = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    ordering = [<span class="string">'-click_nums'</span>]</span><br><span class="line">    readonly_fields = [<span class="string">'click_nums'</span>]</span><br><span class="line">    exclude = [<span class="string">'fav_nums'</span>]</span><br><span class="line">    inlines = [LessonInline, CourseResourceInline]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">queryset</span><span class="params">(self)</span>:</span></span><br><span class="line">        qs = super(CourseAdmin, self).queryset()</span><br><span class="line">        qs = qs.filter(is_banner=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">return</span> qs</span><br><span class="line">xadmin.site.register(Course, CourseAdmin)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BannerCourseAdmin</span><span class="params">(object)</span>:</span></span><br><span class="line">    list_display = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    search_fields = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>]</span><br><span class="line">    list_filter = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    ordering = [<span class="string">'-click_nums'</span>]</span><br><span class="line">    readonly_fields = [<span class="string">'click_nums'</span>]</span><br><span class="line">    exclude = [<span class="string">'fav_nums'</span>]</span><br><span class="line">    inlines = [LessonInline, CourseResourceInline]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">queryset</span><span class="params">(self)</span>:</span></span><br><span class="line">        qs = super(BannerCourseAdmin, self).queryset()</span><br><span class="line">        qs = qs.filter(is_banner=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">return</span> qs</span><br><span class="line">xadmin.site.register(BannerCourse, BannerCourseAdmin)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">list_editable</span><br><span class="line">list_editable = [<span class="string">'name'</span>,<span class="string">'degree'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>list中 函数的引用<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    course_org = models.ForeignKey(CourseOrg, verbose_name=<span class="string">u"课程机构"</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    name = models.CharField(max_length=<span class="number">50</span>, verbose_name=<span class="string">u"课程名"</span>)</span><br><span class="line">    desc = models.CharField(max_length=<span class="number">300</span>, verbose_name=<span class="string">u"课程描述"</span>)</span><br><span class="line">    detail = models.TextField(verbose_name=<span class="string">u"课程详情"</span>)</span><br><span class="line">    teacher = models.ForeignKey(Teacher, verbose_name=<span class="string">u"讲师"</span>, null=<span class="literal">True</span>,  blank=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># TextField不限制max_length</span></span><br><span class="line">    degree = models.CharField(choices=((<span class="string">"cj"</span>, <span class="string">u"初级"</span>),(<span class="string">"zj"</span>, <span class="string">u"中级"</span>),(<span class="string">"bj"</span>, <span class="string">u"高级"</span>)), max_length=<span class="number">2</span>, verbose_name=<span class="string">u"难度"</span>)</span><br><span class="line">    learn_times = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"学习时长（分钟数）"</span>)</span><br><span class="line">    students= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"学习人数"</span>)</span><br><span class="line">    fav_nums= models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"收藏人数"</span>)</span><br><span class="line">    image = models.ImageField(upload_to=<span class="string">"courses/%y/%m"</span>, verbose_name=<span class="string">u"封面图"</span>, max_length=<span class="number">100</span>)</span><br><span class="line">    click_nums = models.IntegerField(default=<span class="number">0</span>, verbose_name=<span class="string">u"点击数"</span>)</span><br><span class="line">    category = models.CharField(default=<span class="string">u"后端开发"</span>, max_length=<span class="number">20</span>, verbose_name=<span class="string">u"课程类别"</span>)</span><br><span class="line">    tag = models.CharField(default=<span class="string">""</span>, max_length=<span class="number">10</span>, verbose_name= <span class="string">u"课程标签"</span>)</span><br><span class="line">    youneed_know = models.CharField(max_length=<span class="number">300</span>, verbose_name=<span class="string">u"课程须知"</span>, default=<span class="string">""</span>)</span><br><span class="line">    teacher_tell = models.CharField(max_length=<span class="number">300</span> , verbose_name=<span class="string">u"老师告诉你学到什么"</span>, default=<span class="string">""</span>)</span><br><span class="line">    is_banner = models.BooleanField(default=<span class="literal">False</span>, verbose_name=<span class="string">u"是否轮播"</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_zj_nums</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.lesson_set.all().count()</span><br><span class="line">    get_zj_nums.short_description = <span class="string">u'章节数'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_learn_users</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.usercourse_set.all()[:<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u"课程"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CourseAdmin</span><span class="params">(object)</span>:</span></span><br><span class="line">    list_display = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>,<span class="string">'get_zj_nums'</span>]</span><br><span class="line">    search_fields = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>]</span><br><span class="line">    list_filter = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>]</span><br><span class="line">    ordering = [<span class="string">'-click_nums'</span>]</span><br><span class="line">    readonly_fields = [<span class="string">'click_nums'</span>]</span><br><span class="line">    list_editable = [<span class="string">'name'</span>,<span class="string">'degree'</span>]</span><br><span class="line">    exclude = [<span class="string">'fav_nums'</span>]</span><br><span class="line">    inlines = [LessonInline, CourseResourceInline]</span><br></pre></td></tr></table></figure></p>
+<p>自定义html代码<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">go_to</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">from</span> django.utils.safestring <span class="keyword">import</span> mark_safe</span><br><span class="line">        <span class="keyword">return</span> mark_safe(<span class="string">'&lt;a href="http://www.baidu.com/&#123;0&#125;" target="_blank"&gt;Link&lt;/a&gt;'</span>.format(self.name))</span><br><span class="line">        go_to.short_description = <span class="string">u'章节数'</span></span><br><span class="line">        </span><br><span class="line">list_display = [<span class="string">'name'</span>,<span class="string">'desc'</span>,<span class="string">'detail'</span>,<span class="string">'degree'</span>,<span class="string">'learn_times'</span>,<span class="string">'students'</span>,<span class="string">'fav_nums'</span>,<span class="string">'image'</span>,<span class="string">'click_nums'</span>,<span class="string">'add_time'</span>,<span class="string">'get_zj_nums'</span>,<span class="string">'go_to'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>定时刷新<br>refresh_times = [3, 5]<br><img src="/images/pasted-154.png" alt="upload successful"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">数据发生变更触发操作</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">save_models</span><span class="params">(self)</span>:</span></span><br><span class="line">        obj = self.new_obj</span><br><span class="line">        obj.save()</span><br><span class="line">        course_org = obj.course_org</span><br><span class="line">        <span class="keyword">if</span> course_org:</span><br><span class="line">            course_org.course_nums = Course.objects.filter(course_org=course_org).count()</span><br><span class="line">            course_org.save()</span><br><span class="line">```            </span><br><span class="line">xadmin集成富文本编辑工具</span><br><span class="line">https://github.com/zhangfisher/DjangoUeditor</span><br><span class="line"></span><br><span class="line">pip install DjangoUeditor</span><br><span class="line">setting.py 配置 instal app</span><br><span class="line">url配置</span><br><span class="line">拷贝DjangoUeditor static html文件</span><br><span class="line"></span><br><span class="line">``` html</span><br><span class="line">&#123;% autoescape off %&#125;</span><br><span class="line">&#123;&#123; course.detail &#125;&#125;</span><br><span class="line">&#123;% endautoescape %&#125;</span><br></pre></td></tr></table></figure>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dncHl0aG9uL2FydGljbGUvZGV0YWlscy83OTU4NTIwNQ==" title="https://blog.csdn.net/wgpython/article/details/79585205">https://blog.csdn.net/wgpython/article/details/79585205<i class="fa fa-external-link"></i></span></p>
+<p>uedit插件</p>
+<p>excel插件</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dpbl90dXJuL2FydGljbGUvZGV0YWlscy81NTUxNzc1OQ==" title="https://blog.csdn.net/win_turn/article/details/55517759">https://blog.csdn.net/win_turn/article/details/55517759<i class="fa fa-external-link"></i></span><br><span class="exturl" data-url="aHR0cDovL2RqYW5nby1zaW1wbGUtY2FwdGNoYS5yZWFkdGhlZG9jcy5pby9lbi9sYXRlc3QvdXNhZ2UuaHRtbCNpbnN0YWxsYXRpb24=" title="http://django-simple-captcha.readthedocs.io/en/latest/usage.html#installation">http://django-simple-captcha.readthedocs.io/en/latest/usage.html#installation<i class="fa fa-external-link"></i></span></p>
+<p><span class="exturl" data-url="aHR0cDovL3Byb2plY3RzZWR1LmNvbS8yMDE3LzA4LzE1L2NlbnRvczctJUU0JUI4JThCJUU5JTgwJTlBJUU4JUJGJTg3bmdpbngtdXdzZ2klRTklODMlQTglRTclQkQlQjJkamFuZ28lRTUlQkElOTQlRTclOTQlQTgv" title="http://projectsedu.com/2017/08/15/centos7-%E4%B8%8B%E9%80%9A%E8%BF%87nginx-uwsgi%E9%83%A8%E7%BD%B2django%E5%BA%94%E7%94%A8/">http://projectsedu.com/2017/08/15/centos7-%E4%B8%8B%E9%80%9A%E8%BF%87nginx-uwsgi%E9%83%A8%E7%BD%B2django%E5%BA%94%E7%94%A8/<i class="fa fa-external-link"></i></span></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Django/1160884897.html" rel="next" title="Django models">
+                <i class="fa fa-chevron-left"></i> Django models
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/uncategorized/1656965246.html" rel="prev" title="前端相关">
+                前端相关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/timg.jpg" alt="Jianhu Yong">
+            
+              <p class="site-author-name" itemprop="name">Jianhu Yong</p>
+              <div class="site-description motion-element" itemprop="description">It's better when it's simple</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="GitHub &rarr; https://github.com/yourname"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnlvdXJuYW1lQGdtYWlsLmNvbQ==" title="E-Mail &rarr; mailto:yourname@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3dpa2kubGFvaHVsYWIuY29tOjkwMDA=" title="http://wiki.laohulab.com:9000">wiki</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Rva3V3aWtpLmxhb2h1bGFiLmNvbTo5MDAw" title="http://dokuwiki.laohulab.com:9000">dokuwiki</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3JvdXRlLmxhb2h1bGFiLmNvbTo4MDAw" title="http://route.laohulab.com:8000">router</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL25hcy5sYW9odWxhYi5jb206OTAwMA==" title="http://nas.laohulab.com:9000">nas</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvYmJsZXIubGFvaHVsYWIuY29tOjkwMDA=" title="http://cobbler.laohulab.com:9000">cobbler</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL21haWwubGFvaHVsYWIuY29tOjYwODA=" title="http://mail.laohulab.com:6080">mail</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL21pcnJvci5sYW9odWxhYi5jb206OTAwMA==" title="http://mirror.laohulab.com:9000">mirror</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3phYmJpeC5sYW9odWxhYi5jb206OTAwMA==" title="http://zabbix.laohulab.com:9000">zabbix</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jianhu Yong</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">301k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:34</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.0"></script>
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="资产管理系统">
+<meta name="keywords" content="html,css,jquery,python,django,linux,windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="资产管理系统(未完待续)">
+<meta property="og:url" content="http://blog.laohulab.com/Django/3392313719.html">
+<meta property="og:site_name" content="Happy Every Day">
+<meta property="og:description" content="资产管理系统">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-268.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-269.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-270.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-271.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-272.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-273.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-274.png">
+<meta property="og:image" content="http://blog.laohulab.com/images/pasted-275.png">
+<meta property="og:updated_time" content="2019-05-01T13:44:31.369Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="资产管理系统(未完待续)">
+<meta name="twitter:description" content="资产管理系统">
+<meta name="twitter:image" content="http://blog.laohulab.com/images/pasted-268.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Happy Every Day" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://blog.laohulab.com/Django/3392313719">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>资产管理系统(未完待续) | Happy Every Day</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Happy Every Day</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">No Pain No Gain</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+            
+            
+            
+              
+              
+
+  
+  
+    
+  
+  <li class="menu-item menu-item-docs">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/docs/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>docs</a>
+
+  </li>
+
+
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+            
+            
+            
+          
+        
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">17</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">57</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>站点地图</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/404.html" rel="section"><i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>公益 404</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></span>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+
+        
+        
+        
+        
+
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/Django/3392313719.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jianhu Yong">
+      <meta itemprop="description" content="It's better when it's simple">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Happy Every Day">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">资产管理系统(未完待续)<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL3VzZXItbmFtZS9yZXBvLW5hbWUvdHJlZS9icmFuY2gtbmFtZS9zdWJkaXJlY3RvcnktbmFtZV9wb3N0cy/otYTkuqfnrqHnkIbns7vnu58ubWQ=" title="编辑"><i class="fa fa-pencil"></i></span>
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-29 16:12:00" itemprop="dateCreated datePublished" datetime="2019-04-29T16:12:00+08:00">2019-04-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-01 21:44:31" itemprop="dateModified" datetime="2019-05-01T21:44:31+08:00">2019-05-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Django/" itemprop="url" rel="index"><span itemprop="name">Django</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">30k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">27 分钟</span>
+              
+            </div>
+          
+
+          
+            <div class="post-description">资产管理系统</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h5><p><img src="/images/pasted-268.png" alt="upload successful"><br><img src="/images/pasted-269.png" alt="upload successful"><br><img src="/images/pasted-270.png" alt="upload successful"><br><img src="/images/pasted-271.png" alt="upload successful"><br><img src="/images/pasted-272.png" alt="upload successful"><br><img src="/images/pasted-273.png" alt="upload successful"><br><img src="/images/pasted-274.png" alt="upload successful"><br><img src="/images/pasted-275.png" alt="upload successful"></p>
+<h5 id="数据库表结构"><a href="#数据库表结构" class="headerlink" title="数据库表结构"></a>数据库表结构</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"></span><br><span class="line">HD_INTERFACE = (</span><br><span class="line">    (<span class="string">'SSD'</span>, <span class="string">'SSD'</span>),</span><br><span class="line">    (<span class="string">'SAS'</span>, <span class="string">'SAS'</span>),</span><br><span class="line">    (<span class="string">'SATA'</span>, <span class="string">'SATA'</span>),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">MEM_INTERFACE = (</span><br><span class="line">    (<span class="string">'DDR3'</span>, <span class="string">'DDR3'</span>),</span><br><span class="line">    (<span class="string">'DDR4'</span>, <span class="string">'DDR4'</span>),</span><br><span class="line">    (<span class="string">'Unknown'</span>, <span class="string">'Unknown'</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">STATUS = (</span><br><span class="line">    (<span class="string">'1'</span>, <span class="string">'使用中'</span>),</span><br><span class="line">    (<span class="string">'2'</span>, <span class="string">'未使用'</span>),</span><br><span class="line">    (<span class="string">'3'</span>, <span class="string">'故障'</span>),</span><br><span class="line">    (<span class="string">'4'</span>, <span class="string">'报废'</span>),</span><br><span class="line">    (<span class="string">'5'</span>, <span class="string">'其他'</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">OS_TYPE = (</span><br><span class="line">    (<span class="string">'Linux'</span>, <span class="string">'Linux'</span>),</span><br><span class="line">    (<span class="string">'Windows'</span>, <span class="string">'Windows'</span>),</span><br><span class="line">    (<span class="string">'Other'</span>, <span class="string">'Other'</span>),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">AUTH_TYPE = (</span><br><span class="line">    (<span class="string">'PWD'</span>, <span class="string">'密码认证'</span>),</span><br><span class="line">    (<span class="string">'KEY'</span>, <span class="string">'密钥认证'</span>)</span><br><span class="line">)</span><br><span class="line"><span class="comment"># 定义服务器认证信息</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AuthInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    auth_type = models.CharField(max_length=<span class="number">10</span>, choices=AUTH_TYPE, default=<span class="string">'PWD'</span>, verbose_name=<span class="string">'认证类型'</span>)</span><br><span class="line">    user = models.CharField(max_length=<span class="number">128</span>, verbose_name=<span class="string">'认证用户'</span>)</span><br><span class="line">    pwd = models.CharField(max_length=<span class="number">128</span>, verbose_name=<span class="string">'认证密码'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u"添加时间"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'认证信息'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.user + <span class="string">'-'</span> + self.auth_type</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HardDiskInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    物理磁盘信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    wwn = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'序列号'</span>, unique=<span class="literal">True</span>)</span><br><span class="line">    model = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'硬盘型号'</span>)</span><br><span class="line">    size = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'硬盘大小'</span>)</span><br><span class="line">    slot = models.CharField(max_length=<span class="number">2</span>, verbose_name=<span class="string">'插槽位置'</span>)</span><br><span class="line">    interface = models.CharField(max_length=<span class="number">10</span>, choices=HD_INTERFACE, verbose_name=<span class="string">'接口类型'</span>)</span><br><span class="line">    manufacturer = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'硬盘厂商'</span>)</span><br><span class="line">    host = models.ForeignKey(<span class="string">'PhysicalHostInfo'</span>, verbose_name=<span class="string">'关联主机'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'硬盘信息'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.wwn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemoryInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    内存信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    sn = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'序列号'</span>, unique=<span class="literal">True</span>)</span><br><span class="line">    size = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'内存大小'</span>)</span><br><span class="line">    slot = models.CharField(max_length=<span class="number">10</span>, verbose_name=<span class="string">'插槽位置'</span>)</span><br><span class="line">    interface = models.CharField(max_length=<span class="number">20</span>, choices=MEM_INTERFACE, verbose_name=<span class="string">'接口类型'</span>)</span><br><span class="line">    speed = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'内存频率'</span>)</span><br><span class="line">    manufacturer = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'内存厂商'</span>)</span><br><span class="line">    voltage = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'内存电压'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    host = models.ForeignKey(<span class="string">'PhysicalHostInfo'</span>, verbose_name=<span class="string">'关联主机'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'内存信息'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.sn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NetworkInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    网络信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'网卡名称'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    mac = models.CharField(max_length=<span class="number">48</span>, verbose_name=<span class="string">'网卡地址'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    ip = models.GenericIPAddressField(verbose_name=<span class="string">'IP地址'</span>, unique=<span class="literal">True</span>)</span><br><span class="line">    mask = models.GenericIPAddressField(verbose_name=<span class="string">'子网掩码'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    gw = models.GenericIPAddressField(verbose_name=<span class="string">'网关地址'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    host = models.ForeignKey(<span class="string">'PhysicalHostInfo'</span>, verbose_name=<span class="string">'关联主机'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    primary = models.BooleanField(default=<span class="literal">False</span>, verbose_name=<span class="string">'默认地址'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'网络信息'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.host.sn + <span class="string">"-"</span> + self.ip</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">IdcInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    数据中心或机房信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    name = models.CharField(<span class="string">"机房名称"</span>, max_length=<span class="number">30</span>, null=<span class="literal">True</span>)</span><br><span class="line">    address = models.CharField(<span class="string">"机房地址"</span>, max_length=<span class="number">100</span>, null=<span class="literal">True</span>)</span><br><span class="line">    tel = models.CharField(<span class="string">"机房电话"</span>, max_length=<span class="number">30</span>, null=<span class="literal">True</span>)</span><br><span class="line">    contact = models.CharField(<span class="string">"客户经理"</span>, max_length=<span class="number">30</span>, null=<span class="literal">True</span>)</span><br><span class="line">    contact_phone = models.CharField(<span class="string">"移动电话"</span>, max_length=<span class="number">30</span>, null=<span class="literal">True</span>)</span><br><span class="line">    jigui = models.CharField(<span class="string">"机柜信息"</span>, max_length=<span class="number">30</span>, null=<span class="literal">True</span>)</span><br><span class="line">    ip_range = models.CharField(<span class="string">"IP范围"</span>, max_length=<span class="number">30</span>, null=<span class="literal">True</span>)</span><br><span class="line">    bandwidth = models.CharField(<span class="string">"接入带宽"</span>, max_length=<span class="number">30</span>, null=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'机房管理'</span></span><br><span class="line">        verbose_name_plural = <span class="string">'机房管理'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CabinetInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    机柜信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">10</span>, verbose_name=<span class="string">'机柜名称'</span>)</span><br><span class="line">    cab_lever = models.CharField(max_length=<span class="number">2</span>, verbose_name=<span class="string">u'机器U数,1-10分别代表1~10层'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u'机柜信息表'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HostGroup</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    主机组信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    name = models.CharField(<span class="string">"组名"</span>, max_length=<span class="number">30</span>, unique=<span class="literal">True</span>)</span><br><span class="line">    desc = models.CharField(<span class="string">"描述"</span>, max_length=<span class="number">100</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'属组管理'</span></span><br><span class="line">        verbose_name_plural = <span class="string">'属组管理'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PhysicalHostInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    物理主机信息</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    brand = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'品牌'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    model = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'型号'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    sn = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'序列号'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    status = models.CharField(max_length=<span class="number">10</span>, choices=STATUS, verbose_name=<span class="string">'使用状态'</span>)</span><br><span class="line">    use_department = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'使用部门'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    asset_no = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'资产编号'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    idc = models.ForeignKey(<span class="string">'IdcInfo'</span>, verbose_name=<span class="string">'机房'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    cabinet = models.ForeignKey(<span class="string">'CabinetInfo'</span>, verbose_name=<span class="string">'机柜'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    warranty_time = models.DateField(verbose_name=<span class="string">'质保时间'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    group = models.ForeignKey(<span class="string">'HostGroup'</span>, verbose_name=<span class="string">'主机组'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    os_type = models.CharField(max_length=<span class="number">10</span>, choices=OS_TYPE, verbose_name=<span class="string">'操作系统'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    os = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'操作系统'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    os_kernel = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'内核'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    hostname = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'主机名'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    manage_ip = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'管理IP'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    raid_adp_name = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'控制器名称'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    raid_adp_sn = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'控制器序列号'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    raid_adp_cache_size = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'缓存大小'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    cpu_no = models.CharField(max_length=<span class="number">10</span>, verbose_name=<span class="string">'数量'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    cpu_brand = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'品牌'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    cpu_model = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'型号'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    cpu_core = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'核心数'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    cpu_threads_per_core = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'线程数/核'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    comment = models.TextField(verbose_name=<span class="string">'备注信息'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    auth_info = models.ForeignKey(AuthInfo, verbose_name=<span class="string">'认证信息'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u'物理服务器'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.sn</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_nets</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.networkinfo_set.all()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_default_ip</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.networkinfo_set.get(primary=<span class="literal">True</span>).ip</span><br><span class="line">    get_default_ip.short_description = <span class="string">'默认IP'</span></span><br><span class="line">    <span class="comment"># def get_cpus(self):</span></span><br><span class="line">    <span class="comment">#     return self.cpuinfo_set.all().count()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VirtualHostInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    sn = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'序列号'</span>)</span><br><span class="line">    status = models.CharField(max_length=<span class="number">10</span>, choices=STATUS, verbose_name=<span class="string">'使用状态'</span>)</span><br><span class="line">    use_department = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'使用部门'</span>)</span><br><span class="line">    group = models.ForeignKey(<span class="string">'HostGroup'</span>, verbose_name=<span class="string">'主机组'</span>)</span><br><span class="line">    os_type = models.CharField(max_length=<span class="number">10</span>, choices=OS_TYPE, verbose_name=<span class="string">'操作系统'</span>)</span><br><span class="line">    os = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'操作系统'</span>)</span><br><span class="line">    os_kernel = models.CharField(max_length=<span class="number">60</span>, verbose_name=<span class="string">'内核'</span>)</span><br><span class="line">    hostname = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'主机名'</span>)</span><br><span class="line">    cpu_no = models.CharField(max_length=<span class="number">10</span>, verbose_name=<span class="string">'数量'</span>)</span><br><span class="line">    phy = models.ForeignKey(<span class="string">'PhysicalHostInfo'</span>, verbose_name=<span class="string">'宿主机信息'</span>)</span><br><span class="line">    mem = models.ForeignKey(<span class="string">'MemoryInfo'</span>, verbose_name=<span class="string">'内存信息'</span>)</span><br><span class="line">    hd = models.ForeignKey(<span class="string">'HardDiskInfo'</span>, verbose_name=<span class="string">'硬盘信息'</span>)</span><br><span class="line">    net = models.ForeignKey(<span class="string">'NetworkInfo'</span>, verbose_name=<span class="string">'网络信息'</span>)</span><br><span class="line">    comment = models.TextField(verbose_name=<span class="string">'备注信息'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">u'虚拟服务器'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__unicode__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.hostname</span><br></pre></td></tr></table></figure>       
+<h5 id="获取资产信息"><a href="#获取资产信息" class="headerlink" title="获取资产信息"></a>获取资产信息</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line">__author__ = <span class="string">'jianhu.yong'</span></span><br><span class="line">__date__ = <span class="string">'19-4-10 下午4:48'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> ansible <span class="keyword">import</span> constants</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</span><br><span class="line"><span class="keyword">from</span> ansible.parsing.dataloader <span class="keyword">import</span> DataLoader</span><br><span class="line"><span class="keyword">from</span> ansible.playbook.play <span class="keyword">import</span> Play</span><br><span class="line"><span class="keyword">from</span> ansible.executor.task_queue_manager <span class="keyword">import</span> TaskQueueManager</span><br><span class="line"><span class="keyword">from</span> ansible.executor.playbook_executor <span class="keyword">import</span> PlaybookExecutor</span><br><span class="line"><span class="keyword">from</span> ansible.plugins.callback <span class="keyword">import</span> CallbackBase</span><br><span class="line"><span class="keyword">from</span> ansible.inventory.manager <span class="keyword">import</span> InventoryManager</span><br><span class="line"><span class="keyword">from</span> ansible.vars.manager <span class="keyword">import</span> VariableManager</span><br><span class="line"><span class="keyword">from</span> ansible.inventory.host <span class="keyword">import</span> Host, Group</span><br><span class="line"><span class="keyword">from</span> cmdb.settings <span class="keyword">import</span> BASE_DIR</span><br><span class="line"><span class="keyword">from</span> cmdb.settings <span class="keyword">import</span> SSH_PRIVATE_KEY_FILE, SSH_USER</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> asset.models <span class="keyword">import</span> PhysicalHostInfo, NetworkInfo, MemoryInfo, HardDiskInfo</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ModelResultsCollector</span><span class="params">(CallbackBase)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, sn, *args, **kwargs)</span>:</span></span><br><span class="line">        super(ModelResultsCollector, self).__init__(*args, **kwargs)</span><br><span class="line">        self.host_ok = &#123;&#125;</span><br><span class="line">        self.host_unreachable = &#123;&#125;</span><br><span class="line">        self.host_failed = &#123;&#125;</span><br><span class="line">        self.sn = sn</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_runner_on_unreachable</span><span class="params">(self, result)</span>:</span></span><br><span class="line">        self.host_unreachable[result._host.get_name()] = result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_runner_on_ok</span><span class="params">(self, result, *args, **kwargs)</span>:</span></span><br><span class="line">        self.host_ok[result._host.get_name()] = result</span><br><span class="line"></span><br><span class="line">        task_name = result.task_name</span><br><span class="line">        <span class="keyword">if</span> task_name == <span class="string">'setup'</span>:</span><br><span class="line">            host = result._host.name</span><br><span class="line">            facts = result._result.get(<span class="string">'ansible_facts'</span>)</span><br><span class="line">            <span class="keyword">if</span> facts:</span><br><span class="line">                product_serial = facts.get(<span class="string">'ansible_product_serial'</span>, <span class="string">'NA'</span>)</span><br><span class="line">                <span class="keyword">if</span> product_serial != <span class="string">'NA'</span> <span class="keyword">and</span> <span class="string">'VMware'</span> <span class="keyword">in</span> product_serial:</span><br><span class="line">                    virtual_type = <span class="string">'vmware'</span></span><br><span class="line">                <span class="keyword">elif</span> product_serial != <span class="string">'NA'</span>:</span><br><span class="line">                    virtual_type = <span class="string">'physical'</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    virtual_type = facts.get(<span class="string">'facter_virtual'</span>, <span class="string">'NA'</span>)</span><br><span class="line"></span><br><span class="line">                self.sn_new = product_serial</span><br><span class="line"></span><br><span class="line">                obj, status = PhysicalHostInfo.objects.get_or_create(sn=product_serial)</span><br><span class="line">                obj.brand = facts.get(<span class="string">'ansible_system_vendor'</span>)</span><br><span class="line">                obj.model = facts.get(<span class="string">'ansible_product_name'</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 获取操作系统信息</span></span><br><span class="line">                obj.os_type = facts.get(<span class="string">'ansible_system'</span>)</span><br><span class="line">                obj.os = facts.get(<span class="string">'ansible_distribution'</span>)</span><br><span class="line">                obj.os_kernel = facts.get(<span class="string">'ansible_kernel'</span>)</span><br><span class="line">                obj.hostname = facts.get(<span class="string">'ansible_nodename'</span>)</span><br><span class="line">                obj.save()</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 获取CPU信息</span></span><br><span class="line">                cpu_no = facts.get(<span class="string">'ansible_processor_count'</span>)</span><br><span class="line">                cpu_model = facts.get(<span class="string">'ansible_processor'</span>)[<span class="number">-1</span>]</span><br><span class="line">                cpu_brand = facts.get(<span class="string">'ansible_processor'</span>)[<span class="number">-2</span>]</span><br><span class="line">                cpu_core = facts.get(<span class="string">'ansible_processor_cores'</span>)</span><br><span class="line">                cpu_threads_per_core = facts.get(<span class="string">'ansible_processor_threads_per_core'</span>)</span><br><span class="line"></span><br><span class="line">                obj.cpu_no = cpu_no</span><br><span class="line">                obj.cpu_model = cpu_model</span><br><span class="line">                obj.cpu_brand = cpu_brand</span><br><span class="line">                obj.cpu_core = cpu_core</span><br><span class="line">                obj.cpu_threads_per_core = cpu_threads_per_core</span><br><span class="line">                obj.save()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 获取网络信息</span></span><br><span class="line">                interfaces_info = &#123;&#125;</span><br><span class="line">                valid_interfaces = []</span><br><span class="line">                interfaces = facts.get(<span class="string">'ansible_interfaces'</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="string">'lo'</span> <span class="keyword">in</span> interfaces:</span><br><span class="line">                    interfaces.remove(<span class="string">'lo'</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="string">'w1g1'</span> <span class="keyword">in</span> interfaces:</span><br><span class="line">                    interfaces.remove(<span class="string">'w1g1'</span>)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> interface <span class="keyword">in</span> interfaces:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> interface.startswith(<span class="string">'vir'</span>):</span><br><span class="line">                        valid_interfaces.append(interface)</span><br><span class="line"></span><br><span class="line">                default_interface = facts.get(<span class="string">'ansible_default_ipv4'</span>).get(<span class="string">'interface'</span>)</span><br><span class="line">                default_gw = facts.get(<span class="string">'ansible_default_ipv4'</span>).get(<span class="string">'gateway'</span>)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> interface <span class="keyword">in</span> valid_interfaces:</span><br><span class="line">                    interface_info = facts.get(<span class="string">'ansible_&#123;&#125;'</span>.format(interface))</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> interface_info.get(<span class="string">'active'</span>):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> interface_info.has_key(<span class="string">'ipv4'</span>):</span><br><span class="line">                        address = interface_info.get(<span class="string">'ipv4'</span>).get(<span class="string">'address'</span>)</span><br><span class="line">                        netmask = interface_info.get(<span class="string">'ipv4'</span>).get(<span class="string">'netmask'</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        address = <span class="literal">None</span></span><br><span class="line">                        netmask = <span class="literal">None</span></span><br><span class="line">                    macaddress = interface_info.get(<span class="string">'macaddress'</span>)</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> interface == default_interface:</span><br><span class="line">                        primary = <span class="literal">True</span></span><br><span class="line">                        gateway = default_gw</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        primary = <span class="literal">False</span></span><br><span class="line">                        gateway = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">                    interfaces_info[interface] = dict(</span><br><span class="line">                        address=address,</span><br><span class="line">                        netmask=netmask,</span><br><span class="line">                        macaddress= macaddress,</span><br><span class="line">                        primary=primary,</span><br><span class="line">                        gateway=gateway</span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line">                ip_list = []</span><br><span class="line">                <span class="keyword">for</span> k, v <span class="keyword">in</span> interfaces_info.items():</span><br><span class="line">                    <span class="keyword">if</span> v.get(<span class="string">'primary'</span>):</span><br><span class="line">                        net_ins, status = NetworkInfo.objects.get_or_create(primary=<span class="literal">True</span>,ip=v.get(<span class="string">'address'</span>))</span><br><span class="line">                        net_ins.primary = <span class="literal">True</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        <span class="keyword">if</span> <span class="keyword">not</span> v.get(<span class="string">'address'</span>):</span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                        net_ins, status = NetworkInfo.objects.get_or_create(primary=<span class="literal">False</span>, ip=v.get(<span class="string">'address'</span>))</span><br><span class="line">                        net_ins.primary = <span class="literal">False</span></span><br><span class="line">                    ip_list.append(v.get(<span class="string">'address'</span>))</span><br><span class="line">                    net_ins.name = k</span><br><span class="line">                    net_ins.mac = v.get(<span class="string">'macaddress'</span>)</span><br><span class="line">                    <span class="keyword">if</span> v.get(<span class="string">'address'</span>):</span><br><span class="line">                        net_ins.ip = v.get(<span class="string">'address'</span>)</span><br><span class="line">                    net_ins.mask = v.get(<span class="string">'netmask'</span>)</span><br><span class="line">                    net_ins.gw = v.get(<span class="string">'gateway'</span>, <span class="literal">None</span>)</span><br><span class="line">                    net_ins.host = obj</span><br><span class="line">                    net_ins.save()</span><br><span class="line">                net_ins = NetworkInfo.objects.filter(host_id=obj.id, primary=<span class="literal">False</span>).exclude(ip__in=ip_list)</span><br><span class="line">                <span class="keyword">if</span> net_ins:</span><br><span class="line">                    net_ins.delete()</span><br><span class="line"></span><br><span class="line">                <span class="string">"""</span></span><br><span class="line"><span class="string">                针对虚拟机和无法获取序列号的物理机做特殊处理</span></span><br><span class="line"><span class="string">                1、vmware虚拟机有序列号，但是太长，无意义</span></span><br><span class="line"><span class="string">                2、kvm虚拟机无序列号</span></span><br><span class="line"><span class="string">                3、少数物理机无法正常获取序列号，需要手工维护</span></span><br><span class="line"><span class="string">                """</span></span><br><span class="line">                <span class="keyword">if</span> virtual_type == <span class="string">'physical'</span> <span class="keyword">and</span> product_serial != <span class="string">'NA'</span>:  <span class="comment"># 物理机能正常获取到序列号的情况</span></span><br><span class="line">                    obj.product_serial = product_serial</span><br><span class="line">                <span class="keyword">elif</span> virtual_type != <span class="string">'physical'</span>:  <span class="comment"># 虚拟机</span></span><br><span class="line">                    obj.product_serial = <span class="string">"&#123;0&#125;-&#123;1&#125;"</span>.format(virtual_type, host)</span><br><span class="line">                <span class="keyword">else</span>:  <span class="comment"># 物理机无法正常获取产品序列号，需要手动更新</span></span><br><span class="line">                    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">                obj.save()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> task_name == <span class="string">'mem'</span>:</span><br><span class="line">            mem_info = []</span><br><span class="line">            result = result._result.get(<span class="string">'stdout'</span>).split(<span class="string">'\n\n'</span>)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> result:</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> i.startswith(<span class="string">'Handle'</span>):</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                tmp = i.split(<span class="string">'\n\t'</span>)</span><br><span class="line">                mem_dict = &#123;&#125;</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> tmp:</span><br><span class="line">                    <span class="keyword">if</span> <span class="string">':'</span> <span class="keyword">not</span> <span class="keyword">in</span> j:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        k,v = j.split(<span class="string">':'</span>)</span><br><span class="line">                        mem_dict[k.strip()] = v.strip()</span><br><span class="line">                mem_info.append(mem_dict)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> self.sn == self.sn_new:</span><br><span class="line">                obj, status = PhysicalHostInfo.objects.get_or_create(sn=self.sn)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                obj, status = PhysicalHostInfo.objects.get_or_create(sn=self.sn_new)</span><br><span class="line">            sn_list = []</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> mem_info:</span><br><span class="line">                <span class="keyword">if</span> i.has_key(<span class="string">'Size'</span>) <span class="keyword">and</span> i.get(<span class="string">'Size'</span>).endswith(<span class="string">'MB'</span>):</span><br><span class="line">                    size = i.get(<span class="string">'Size'</span>, <span class="string">'Unknown'</span>)</span><br><span class="line">                    slot = i.get(<span class="string">'Locator'</span>, <span class="string">'Unknown'</span>)</span><br><span class="line">                    interface = i.get(<span class="string">'Type'</span>, <span class="string">'Unknown'</span>)</span><br><span class="line">                    speed = i.get(<span class="string">'Speed'</span>, <span class="string">'Unknown'</span>)</span><br><span class="line">                    manufacturer = i.get(<span class="string">'Manufacturer'</span>, <span class="string">'Unknown'</span>)</span><br><span class="line">                    sn = i.get(<span class="string">'Serial Number'</span>, <span class="literal">None</span>)</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> sn <span class="keyword">or</span> sn == <span class="string">'None'</span>:</span><br><span class="line">                        h = hashlib.md5()</span><br><span class="line">                        h.update(obj.sn+slot)</span><br><span class="line">                        sn = h.hexdigest()</span><br><span class="line">                    sn_list.append(sn)</span><br><span class="line">                    voltage = i.get(<span class="string">'Configured Voltage'</span>, <span class="string">'Unknown'</span>)</span><br><span class="line"></span><br><span class="line">                    mem_ins, status = MemoryInfo.objects.get_or_create(sn=sn)</span><br><span class="line">                    mem_ins.sn = sn</span><br><span class="line">                    mem_ins.size = size</span><br><span class="line">                    mem_ins.slot = slot</span><br><span class="line">                    mem_ins.interface = interface</span><br><span class="line">                    mem_ins.speed = speed</span><br><span class="line">                    mem_ins.manufacturer = manufacturer</span><br><span class="line">                    mem_ins.voltage = voltage</span><br><span class="line">                    mem_ins.host = obj</span><br><span class="line">                    mem_ins.save()</span><br><span class="line">            mem_ins = MemoryInfo.objects.filter(host_id=obj.id).exclude(sn__in=sn_list)</span><br><span class="line">            <span class="keyword">if</span> mem_ins:</span><br><span class="line">                mem_ins.delete()</span><br><span class="line">        <span class="keyword">elif</span> task_name == <span class="string">'hd'</span>:</span><br><span class="line">            <span class="keyword">if</span> self.sn == self.sn_new:</span><br><span class="line">                obj, status = PhysicalHostInfo.objects.get_or_create(sn=self.sn)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                obj, status = PhysicalHostInfo.objects.get_or_create(sn=self.sn_new)</span><br><span class="line">            result = result._result.get(<span class="string">'stdout'</span>)</span><br><span class="line">            <span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">            raid_adp_name = re.search(<span class="string">'Product Name:.+'</span>, result).group().split(<span class="string">':'</span>)[<span class="number">-1</span>].strip()</span><br><span class="line">            raid_adp_sn = re.search(<span class="string">'Serial No:.+'</span>, result).group().split(<span class="string">':'</span>)[<span class="number">-1</span>].strip()</span><br><span class="line">            raid_adp_cache_size = re.search(<span class="string">'Memory:.+'</span>, result).group().split(<span class="string">':'</span>)[<span class="number">-1</span>].strip()</span><br><span class="line"></span><br><span class="line">            obj.raid_adp_name = raid_adp_name</span><br><span class="line">            obj.raid_adp_sn = raid_adp_sn</span><br><span class="line">            obj.raid_adp_cache_size = raid_adp_cache_size</span><br><span class="line">            obj.save()</span><br><span class="line"></span><br><span class="line">            s = re.search(<span class="string">'Physical Disk:.+alert : No'</span>, result, flags=re.DOTALL).group()</span><br><span class="line"></span><br><span class="line">            hd_info = s.split(<span class="string">'\n\n\n\n'</span>)</span><br><span class="line"></span><br><span class="line">            wwn_list = []</span><br><span class="line">            <span class="keyword">for</span> hd <span class="keyword">in</span> hd_info:</span><br><span class="line">                slot = re.search(<span class="string">'Slot Number:.+'</span>, hd).group().split(<span class="string">":"</span>)[<span class="number">-1</span>].strip()</span><br><span class="line">                wwn = re.search(<span class="string">'WWN:.+'</span>, hd).group().split(<span class="string">":"</span>)[<span class="number">-1</span>].strip()</span><br><span class="line">                interface = re.search(<span class="string">'PD Type:.+'</span>, hd).group().split(<span class="string">":"</span>)[<span class="number">-1</span>].strip()</span><br><span class="line">                size = re.search(<span class="string">'Raw Size:.+B'</span>, hd).group().split(<span class="string">":"</span>)[<span class="number">-1</span>].strip()</span><br><span class="line">                manufacturer = re.search(<span class="string">'Inquiry Data.+'</span>, hd).group().split(<span class="string">":"</span>)[<span class="number">-1</span>].split()[<span class="number">0</span>].strip()</span><br><span class="line">                model = re.search(<span class="string">'Inquiry Data.+'</span>, hd).group().split(<span class="string">":"</span>)[<span class="number">-1</span>].split()[<span class="number">1</span>].strip()</span><br><span class="line"></span><br><span class="line">                wwn_list.append(wwn)</span><br><span class="line"></span><br><span class="line">                hd_ins, status = HardDiskInfo.objects.get_or_create(wwn=wwn)</span><br><span class="line">                hd_ins.slot = slot</span><br><span class="line">                hd_ins.wwn = wwn</span><br><span class="line">                hd_ins.interface = interface</span><br><span class="line">                hd_ins.size = size</span><br><span class="line">                hd_ins.manufacturer = manufacturer</span><br><span class="line">                hd_ins.model = model</span><br><span class="line">                hd_ins.host = obj</span><br><span class="line">                hd_ins.save()</span><br><span class="line"></span><br><span class="line">            hd_ins = HardDiskInfo.objects.filter(host_id=obj.id).exclude(wwn__in=wwn_list)</span><br><span class="line">            <span class="keyword">if</span> hd_ins:</span><br><span class="line">                hd_ins.delete()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_runner_on_failed</span><span class="params">(self, result, *args, **kwargs)</span>:</span></span><br><span class="line">        self.host_failed[result._host.get_name()] = result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PlayBookResultsCollector</span><span class="params">(CallbackBase)</span>:</span></span><br><span class="line">    CALLBACK_VERSION = <span class="number">2.0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        super(PlayBookResultsCollector, self).__init__(*args, **kwargs)</span><br><span class="line">        self.task_ok = &#123;&#125;</span><br><span class="line">        self.task_skipped = &#123;&#125;</span><br><span class="line">        self.task_failed = &#123;&#125;</span><br><span class="line">        self.task_status = &#123;&#125;</span><br><span class="line">        self.task_unreachable = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_runner_on_ok</span><span class="params">(self, result, *args, **kwargs)</span>:</span></span><br><span class="line">        self.task_ok[result._host.get_name()]  = result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_runner_on_failed</span><span class="params">(self, result, *args, **kwargs)</span>:</span></span><br><span class="line">        self.task_failed[result._host.get_name()] = result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_runner_on_unreachable</span><span class="params">(self, result)</span>:</span></span><br><span class="line">        self.task_unreachable[result._host.get_name()] = result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_runner_on_skipped</span><span class="params">(self, result)</span>:</span></span><br><span class="line">        self.task_ok[result._host.get_name()]  = result</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">v2_playbook_on_stats</span><span class="params">(self, stats)</span>:</span></span><br><span class="line">        hosts = sorted(stats.processed.keys())</span><br><span class="line">        <span class="keyword">for</span> h <span class="keyword">in</span> hosts:</span><br><span class="line">            t = stats.summarize(h)</span><br><span class="line">            self.task_status[h] = &#123;</span><br><span class="line">                <span class="string">"ok"</span>:t[<span class="string">'ok'</span>],</span><br><span class="line">                <span class="string">"changed"</span> : t[<span class="string">'changed'</span>],</span><br><span class="line">                <span class="string">"unreachable"</span>:t[<span class="string">'unreachable'</span>],</span><br><span class="line">                <span class="string">"skipped"</span>:t[<span class="string">'skipped'</span>],</span><br><span class="line">                <span class="string">"failed"</span>:t[<span class="string">'failures'</span>]</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomInventory</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, resource, auth_type)</span>:</span></span><br><span class="line">        self.resource = resource</span><br><span class="line">        self.auth_type = auth_type</span><br><span class="line">        self.loader = DataLoader()</span><br><span class="line">        self.inventory = InventoryManager(loader=self.loader, sources=[os.path.join(BASE_DIR, <span class="string">'conf/inventory.conf'</span>)])</span><br><span class="line">        <span class="comment"># self.variable_manager.set_inventory(self.inventory)</span></span><br><span class="line">        self.variable_manager = VariableManager(loader=self.loader, inventory=self.inventory)</span><br><span class="line">        self.dynamic_inventory()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dynamic_inventory</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        添加主机信息</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        <span class="keyword">if</span> isinstance(self.resource, list):</span><br><span class="line">            <span class="keyword">if</span> self.auth_type == <span class="string">'pwd_login'</span>:</span><br><span class="line">                self.add_dynamic_group(self.resource, self.auth_type)</span><br><span class="line">            <span class="keyword">elif</span> self.auth_type == <span class="string">'key_login'</span>:</span><br><span class="line">                self.add_dynamic_group(self.resource, self.auth_type)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">elif</span> isinstance(self.resource, dict):</span><br><span class="line">            <span class="keyword">for</span> groupname, hosts <span class="keyword">in</span> self.resource.iteritems():</span><br><span class="line">                self.add_dynamic_group(hosts, groupname)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_dynamic_group</span><span class="params">(self, hosts, group_name, groupvars=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        添加主机信息</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.inventory.groups.get(group_name, <span class="string">''</span>):</span><br><span class="line">            self.inventory.add_group(group_name)</span><br><span class="line"></span><br><span class="line">        group_ins = Group(name=group_name)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># if group variables exists, add them to group</span></span><br><span class="line">        <span class="keyword">if</span> groupvars:</span><br><span class="line">            <span class="keyword">for</span> key, value <span class="keyword">in</span> groupvars.iteritems():</span><br><span class="line">                group_ins.set_variable(key, value)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># add hosts to group</span></span><br><span class="line">        <span class="keyword">for</span> host <span class="keyword">in</span> hosts:</span><br><span class="line">            self.inventory.add_host(host=host,group=group_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ANSRunner</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    This is a General object for parallel execute modules.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, auth_type, resource, *args, **kwargs)</span>:</span></span><br><span class="line">        self.loader = <span class="literal">None</span></span><br><span class="line">        self.inventory = <span class="literal">None</span></span><br><span class="line">        self.variable_manager = <span class="literal">None</span></span><br><span class="line">        self.resource = resource</span><br><span class="line">        self.options = <span class="literal">None</span></span><br><span class="line">        self.passwords = <span class="literal">None</span></span><br><span class="line">        self.callback = <span class="literal">None</span></span><br><span class="line">        self.results_raw = &#123;&#125;</span><br><span class="line">        self.auth_type = auth_type</span><br><span class="line">        self.__initializeData()</span><br><span class="line">        self.sn = kwargs.get(<span class="string">'sn'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__initializeData</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        初始化ansible</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        self.loader = DataLoader()</span><br><span class="line">        Options = namedtuple(<span class="string">'Options'</span>, [<span class="string">'connection'</span>, <span class="string">'module_path'</span>, <span class="string">'forks'</span>, <span class="string">'timeout'</span>,  <span class="string">'remote_user'</span>,</span><br><span class="line">                <span class="string">'ask_pass'</span>, <span class="string">'private_key_file'</span>, <span class="string">'ssh_common_args'</span>, <span class="string">'ssh_extra_args'</span>, <span class="string">'sftp_extra_args'</span>,</span><br><span class="line">                <span class="string">'scp_extra_args'</span>, <span class="string">'become'</span>, <span class="string">'become_method'</span>, <span class="string">'become_user'</span>, <span class="string">'ask_value_pass'</span>, <span class="string">'verbosity'</span>,</span><br><span class="line">                <span class="string">'check'</span>, <span class="string">'listhosts'</span>, <span class="string">'listtasks'</span>, <span class="string">'listtags'</span>, <span class="string">'syntax'</span>,<span class="string">'diff'</span>])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.auth_type == <span class="string">'pwd_login'</span>:</span><br><span class="line">            ask_pass = <span class="literal">True</span></span><br><span class="line">            ask_value_pass = <span class="literal">True</span></span><br><span class="line">            remote_user = <span class="string">'root'</span></span><br><span class="line">            private_key_file = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">if</span> self.auth_type == <span class="string">'key_login'</span>:</span><br><span class="line">            ask_pass = <span class="literal">False</span></span><br><span class="line">            ask_value_pass = <span class="literal">False</span></span><br><span class="line">            remote_user = SSH_USER</span><br><span class="line">            private_key_file = SSH_PRIVATE_KEY_FILE</span><br><span class="line"></span><br><span class="line">        self.options = Options(connection=<span class="string">'smart'</span>, module_path=<span class="literal">None</span>, forks=<span class="number">2</span>, timeout=<span class="number">10</span>,</span><br><span class="line">                remote_user=remote_user, ask_pass=ask_pass, private_key_file=private_key_file, ssh_common_args=<span class="literal">None</span>, ssh_extra_args=<span class="literal">None</span>,</span><br><span class="line">                sftp_extra_args=<span class="literal">None</span>, scp_extra_args=<span class="literal">None</span>, become=<span class="literal">True</span>, become_method=<span class="string">"sudo"</span>,</span><br><span class="line">                become_user=<span class="string">"root"</span>, ask_value_pass=ask_value_pass, verbosity=<span class="literal">None</span>, check=<span class="literal">False</span>, listhosts=<span class="literal">False</span>,</span><br><span class="line">                listtasks=<span class="literal">False</span>, listtags=<span class="literal">False</span>, syntax=<span class="literal">False</span>, diff=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">        self.passwords = dict(</span><br><span class="line">            conn_pass=<span class="string">'xxxx'</span>,</span><br><span class="line">            becomepass=<span class="string">'xxxx'</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        ci = CustomInventory(self.resource, self.auth_type)</span><br><span class="line">        self.inventory = ci.inventory</span><br><span class="line">        self.variable_manager = ci.variable_manager</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_model</span><span class="params">(self, host_list, module_name, module_args=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        run module from andible ad-hoc.</span></span><br><span class="line"><span class="string">        module_name: ansible module_name</span></span><br><span class="line"><span class="string">        module_args: ansible module args</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> module_args:</span><br><span class="line">            play_source = dict(</span><br><span class="line">                    name=<span class="string">"Ansible Play"</span>,</span><br><span class="line">                    hosts=host_list,</span><br><span class="line">                    gather_facts=<span class="string">'no'</span>,</span><br><span class="line">                    tasks=[</span><br><span class="line">                        dict(action=dict(module=<span class="string">'setup'</span>)),</span><br><span class="line">                        dict(action=dict(module=<span class="string">'shell'</span>, args=<span class="string">'/usr/sbin/dmidecode -t memory'</span>)),</span><br><span class="line">                    ]</span><br><span class="line">            )</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            play_source = dict(</span><br><span class="line">                    name=<span class="string">"Ansible Play"</span>,</span><br><span class="line">                    hosts=host_list,</span><br><span class="line">                    gather_facts=<span class="string">'no'</span>,</span><br><span class="line">                    tasks=[</span><br><span class="line">                        dict(action=dict(module=<span class="string">'setup'</span>), name=<span class="string">"setup"</span>),</span><br><span class="line">                        dict(action=dict(module=<span class="string">'shell'</span>, args=<span class="string">'/usr/sbin/dmidecode -t memory'</span>), name=<span class="string">'mem'</span>),</span><br><span class="line">                        dict(action=dict(module=<span class="string">'shell'</span>, args=<span class="string">'/opt/MegaRAID/MegaCli/MegaCli64 -cfgdsply -aALL -NoLog'</span>), name=<span class="string">'hd'</span>)</span><br><span class="line">                    ]</span><br><span class="line">            )</span><br><span class="line">        play = Play().load(play_source, variable_manager=self.variable_manager, loader=self.loader)</span><br><span class="line">        tqm = <span class="literal">None</span></span><br><span class="line">        self.callback = ModelResultsCollector(sn=self.sn)</span><br><span class="line">        <span class="keyword">import</span> traceback</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            tqm = TaskQueueManager(</span><br><span class="line">                inventory=self.inventory,</span><br><span class="line">                variable_manager=self.variable_manager,</span><br><span class="line">                loader=self.loader,</span><br><span class="line">                options=self.options,</span><br><span class="line">                passwords=self.passwords,</span><br><span class="line">                stdout_callback = <span class="string">"minimal"</span>,</span><br><span class="line">            )</span><br><span class="line">            tqm._stdout_callback = self.callback</span><br><span class="line">            constants.HOST_KEY_CHECKING = <span class="literal">False</span> <span class="comment">#关闭第一次使用ansible连接客户端是输入命令</span></span><br><span class="line">            tqm.run(play)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> err:</span><br><span class="line">            <span class="keyword">print</span> traceback.print_exc()</span><br><span class="line">            <span class="comment"># DsRedis.OpsAnsibleModel.lpush(self.redisKey,data=err)</span></span><br><span class="line">            <span class="comment"># if self.logId:AnsibleSaveResult.Model.insert(self.logId, err)</span></span><br><span class="line">        <span class="keyword">finally</span>:</span><br><span class="line">            <span class="keyword">if</span> tqm <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                tqm.cleanup()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run_playbook</span><span class="params">(self, playbook_path,extra_vars=None)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        run ansible palybook</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># if self.redisKey:self.callback = PlayBookResultsCollectorToSave(self.redisKey,self.logId)</span></span><br><span class="line">            self.callback = PlayBookResultsCollector()</span><br><span class="line">            <span class="keyword">if</span> extra_vars:self.variable_manager.extra_vars = extra_vars</span><br><span class="line">            executor = PlaybookExecutor(</span><br><span class="line">                playbooks=[playbook_path], inventory=self.inventory, variable_manager=self.variable_manager, loader=self.loader,</span><br><span class="line">                options=self.options, passwords=self.passwords,</span><br><span class="line">            )</span><br><span class="line">            executor._tqm._stdout_callback = self.callback</span><br><span class="line">            constants.HOST_KEY_CHECKING = <span class="literal">False</span> <span class="comment">#关闭第一次使用ansible连接客户端是输入命令</span></span><br><span class="line">            executor.run()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> err:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_model_result</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.results_raw = &#123;<span class="string">'success'</span>:&#123;&#125;, <span class="string">'failed'</span>:&#123;&#125;, <span class="string">'unreachable'</span>:&#123;&#125;&#125;</span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.host_ok.items():</span><br><span class="line">            hostvisiable = host.replace(<span class="string">'.'</span>,<span class="string">'_'</span>)</span><br><span class="line">            self.results_raw[<span class="string">'success'</span>][hostvisiable] = result._result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.host_failed.items():</span><br><span class="line">            hostvisiable = host.replace(<span class="string">'.'</span>,<span class="string">'_'</span>)</span><br><span class="line">            self.results_raw[<span class="string">'failed'</span>][hostvisiable] = result._result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.host_unreachable.items():</span><br><span class="line">            hostvisiable = host.replace(<span class="string">'.'</span>,<span class="string">'_'</span>)</span><br><span class="line">            self.results_raw[<span class="string">'unreachable'</span>][hostvisiable]= result._result</span><br><span class="line"></span><br><span class="line">        <span class="comment"># return json.dumps(self.results_raw)</span></span><br><span class="line">        <span class="keyword">return</span> self.results_raw</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_playbook_result</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.results_raw = &#123;<span class="string">'skipped'</span>:&#123;&#125;, <span class="string">'failed'</span>:&#123;&#125;, <span class="string">'ok'</span>:&#123;&#125;,<span class="string">"status"</span>:&#123;&#125;,<span class="string">'unreachable'</span>:&#123;&#125;,<span class="string">"changed"</span>:&#123;&#125;&#125;</span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.task_ok.items():</span><br><span class="line">            self.results_raw[<span class="string">'ok'</span>][host] = result</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.task_failed.items():</span><br><span class="line">            self.results_raw[<span class="string">'failed'</span>][host] = result</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.task_status.items():</span><br><span class="line">            self.results_raw[<span class="string">'status'</span>][host] = result</span><br><span class="line"></span><br><span class="line">        <span class="comment"># for host, result in self.callback.task_changed.items():</span></span><br><span class="line">        <span class="comment">#     self.results_raw['changed'][host] = result</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.task_skipped.items():</span><br><span class="line">            self.results_raw[<span class="string">'skipped'</span>][host] = result</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> host, result <span class="keyword">in</span> self.callback.task_unreachable.items():</span><br><span class="line">            self.results_raw[<span class="string">'unreachable'</span>][host] = result</span><br><span class="line">        <span class="keyword">return</span> self.results_raw</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># resource = [</span></span><br><span class="line">    <span class="comment">#     &#123;"hostname": "192.168.8.119"&#125;,</span></span><br><span class="line">    <span class="comment">#     &#123;"hostname": "192.168.6.43"&#125;,</span></span><br><span class="line">    <span class="comment">#     &#123;"hostname": "192.168.1.233"&#125;,</span></span><br><span class="line">    <span class="comment">#  ]</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># resource = &#123;</span></span><br><span class="line">    <span class="comment">#     "dynamic_host": &#123;</span></span><br><span class="line">    <span class="comment">#         "hosts": [</span></span><br><span class="line">    <span class="comment">#                     &#123;'username': u'root', 'password': '123456', 'ip': '192.168.1.108','hostname':'nginx01','port':'22'&#125;,</span></span><br><span class="line">    <span class="comment">#                     &#123;"hostname":"778da6afsdwf","ip": "192.168.1.109", "port": "22", "username": "root", "password":"123456"&#125;,</span></span><br><span class="line">    <span class="comment">#                   ],</span></span><br><span class="line">    <span class="comment">#         "vars": &#123;</span></span><br><span class="line">    <span class="comment">#                  "var1":"ansible",</span></span><br><span class="line">    <span class="comment">#                  "var2":"saltstack"</span></span><br><span class="line">    <span class="comment">#                  &#125;</span></span><br><span class="line">    <span class="comment">#     &#125;</span></span><br><span class="line">    <span class="comment"># &#125;</span></span><br><span class="line"></span><br><span class="line">    resource = &#123;</span><br><span class="line">        <span class="string">'key_login'</span>: [<span class="string">'10.105.42.16'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    rbt = ANSRunner(resource)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Ansible Adhoc</span></span><br><span class="line">    rbt.run_model(host_list=resource[<span class="string">'key_login'</span>], module_name=<span class="string">'setup'</span>)</span><br><span class="line">    data = rbt.get_model_result()</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    <span class="comment"># Ansible playbook</span></span><br><span class="line">    <span class="comment"># rbt.run_playbook(playbook_path='/etc/ansible/playbook/OPUSE.yml')</span></span><br><span class="line">    <span class="comment"># print rbt.get_playbook_result()</span></span><br><span class="line">    <span class="comment"># rbt.run_model(host_list=[],module_name='yum',module_args="name=htop state=present")</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Django/3844096452.html" rel="next" title="域账号后台管理">
+                <i class="fa fa-chevron-left"></i> 域账号后台管理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/timg.jpg" alt="Jianhu Yong">
+            
+              <p class="site-author-name" itemprop="name">Jianhu Yong</p>
+              <div class="site-description motion-element" itemprop="description">It's better when it's simple</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">57</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3lvdXJuYW1l" title="GitHub &rarr; https://github.com/yourname"><i class="fa fa-fw fa-github"></i>GitHub</span>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <span class="exturl" data-url="bWFpbHRvOnlvdXJuYW1lQGdtYWlsLmNvbQ==" title="E-Mail &rarr; mailto:yourname@gmail.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</span>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3dpa2kubGFvaHVsYWIuY29tOjkwMDA=" title="http://wiki.laohulab.com:9000">wiki</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2Rva3V3aWtpLmxhb2h1bGFiLmNvbTo5MDAw" title="http://dokuwiki.laohulab.com:9000">dokuwiki</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3JvdXRlLmxhb2h1bGFiLmNvbTo4MDAw" title="http://route.laohulab.com:8000">router</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL25hcy5sYW9odWxhYi5jb206OTAwMA==" title="http://nas.laohulab.com:9000">nas</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL2NvYmJsZXIubGFvaHVsYWIuY29tOjkwMDA=" title="http://cobbler.laohulab.com:9000">cobbler</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL21haWwubGFvaHVsYWIuY29tOjYwODA=" title="http://mail.laohulab.com:6080">mail</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL21pcnJvci5sYW9odWxhYi5jb206OTAwMA==" title="http://mirror.laohulab.com:9000">mirror</span>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <span class="exturl" data-url="aHR0cDovL3phYmJpeC5sYW9odWxhYi5jb206OTAwMA==" title="http://zabbix.laohulab.com:9000">zabbix</span>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Demo"><span class="nav-number">1.</span> <span class="nav-text">Demo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库表结构"><span class="nav-number">2.</span> <span class="nav-text">数据库表结构</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取资产信息"><span class="nav-number">3.</span> <span class="nav-text">获取资产信息</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jianhu Yong</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">301k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">4:34</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+  <script src="/js/exturl.js?v=7.1.0"></script>
+
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+<script>
+if ($('body').find('div.pdf').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      $('body').find('div.pdf').each(function(i, o) {
+        PDFObject.embed($(o).attr('target'), $(o), {
+          pdfOpenParams: {
+            navpanes: 0,
+            toolbar: 0,
+            statusbar: 0,
+            pagemode: 'thumbs',
+            view: 'FitH'
+          },
+          PDFJS_URL: '/lib/pdf/web/viewer.html',
+          height: $(o).attr('height') || '500px'
+        });
+      });
+    },
+  });
+}
+</script>
+
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+    
+  
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
