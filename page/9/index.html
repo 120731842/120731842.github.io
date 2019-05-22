@@ -343,7 +343,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">66</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">67</span></a>
 
   </li>
         
@@ -473,6 +473,196 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/uncategorized/345149809.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jianhu Yong">
+      <meta itemprop="description" content="It's better when it's simple">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Happy Every Day">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/uncategorized/345149809.html" class="post-title-link" itemprop="url">ADSL代理之单线多播(docker部署)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-14 14:31:00" itemprop="dateCreated datePublished" datetime="2018-06-14T14:31:00+08:00">2018-06-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-01 14:54:23" itemprop="dateModified" datetime="2019-05-01T14:54:23+08:00">2019-05-01</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="安装ovs"><a href="#安装ovs" class="headerlink" title=" 安装ovs"></a><i class="fa fa-caret-right fa-lg"></i> 安装ovs</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rpm -ivh openvswitch-2.5.0-1.x86_64.rpm &amp;&amp; /etc/init.d/openvswitch start</span><br></pre></td></tr></table></figure>
+<h5 id="配置OVS"><a href="#配置OVS" class="headerlink" title=" 配置OVS"></a><i class="fa fa-caret-right fa-lg"></i> 配置OVS</h5> <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@squid-nj-51-11 ~]<span class="comment"># cat /etc/sysconfig/network-scripts/ifcfg-br0 </span></span><br><span class="line">BOOTPROTO=<span class="string">"static"</span></span><br><span class="line">DEVICE=<span class="string">"br0"</span></span><br><span class="line">ONBOOT=<span class="string">"yes"</span></span><br><span class="line">IPADDR=10.0.51.11</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">HOTPLUG=no</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/uncategorized/345149809.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1271,194 +1461,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/uncategorized/3452057291.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jianhu Yong">
-      <meta itemprop="description" content="It's better when it's simple">
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Happy Every Day">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/uncategorized/3452057291.html" class="post-title-link" itemprop="url">黑群辉宕机恢复数据</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-13 13:55:00" itemprop="dateCreated datePublished" datetime="2018-06-13T13:55:00+08:00">2018-06-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-05 08:33:39" itemprop="dateModified" datetime="2019-05-05T08:33:39+08:00">2019-05-05</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">130</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="背景"><a href="#背景" class="headerlink" title=" 背景"></a><i class="fa fa-caret-right fa-lg"></i> 背景</h5><p>黑群晖宕机后，无法通过u盘引导进入系统!</p>
-<h5 id="恢复数据"><a href="#恢复数据" class="headerlink" title=" 恢复数据"></a><i class="fa fa-caret-right fa-lg"></i> 恢复数据</h5><ul>
-<li>Centos6 U盘启动，并进入救援模式（带网络功能）</li>
-<li>mdadm -Asf &amp;&amp; vgchange -ay</li>
-<li>通过lvscan查看，把对应的分区挂载至/tmp目录，通过网络拷贝数据</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1507,7 +1509,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1752,7 +1754,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">328k</span>
+    <span title="站点总字数">346k</span>
   
 
   
@@ -1761,7 +1763,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:58</span>
+    <span title="站点阅读时长">5:15</span>
   
 </div>
 

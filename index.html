@@ -343,7 +343,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">66</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">67</span></a>
 
   </li>
         
@@ -489,6 +489,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/uncategorized/2609104500.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jianhu Yong">
+      <meta itemprop="description" content="It's better when it's simple">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Happy Every Day">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/uncategorized/2609104500.html" class="post-title-link" itemprop="url">ADSL</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-22 10:12:43 / 修改时间：10:28:34" itemprop="dateCreated datePublished" datetime="2019-05-22T10:12:43+08:00">2019-05-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">18k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">16 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="安装Python3-6"><a href="#安装Python3-6" class="headerlink" title="安装Python3.6"></a>安装Python3.6</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install python36</span><br><span class="line">yum install python36-pip</span><br><span class="line">yum install mysql-devel</span><br><span class="line">yum -y install python36-devel</span><br></pre></td></tr></table></figure>
+<h5 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h5><h6 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install virtualenvwrapper</span><br></pre></td></tr></table></figure>
+<h5 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkdir /opt/envs</span><br><span class="line"><span class="built_in">export</span> WORKON_HOME=<span class="string">"/opt/envs"</span></span><br><span class="line"><span class="built_in">source</span> /usr/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure>
+<h5 id="创建虚拟目录"><a href="#创建虚拟目录" class="headerlink" title="创建虚拟目录"></a>创建虚拟目录</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkvirtualenv -p python3 adsl</span><br></pre></td></tr></table></figure>
+<h5 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">backcall==0.1.0</span><br><span class="line">certifi==2018.11.29</span><br><span class="line">chardet==3.0.4</span><br><span class="line">coreapi==2.3.3</span><br><span class="line">coreschema==0.0.4</span><br><span class="line">decorator==4.4.0</span><br><span class="line">defusedxml==0.5.0</span><br><span class="line">diff-match-patch==20181111</span><br><span class="line">Django==1.11.17</span><br><span class="line">django-cors-headers==2.4.0</span><br><span class="line">django-crispy-forms==1.7.2</span><br><span class="line">django-filter==2.1.0</span><br><span class="line">django-formtools==2.1</span><br><span class="line">django-guardian==1.4.9</span><br><span class="line">django-import-export==1.2.0</span><br><span class="line">django-pure-pagination==0.3.0</span><br><span class="line">django-redis==4.10.0</span><br><span class="line">django-reversion==3.0.3</span><br><span class="line">django-simple-captcha==0.4.6</span><br><span class="line">djangorestframework==3.9.1</span><br><span class="line">djangorestframework-jwt==1.11.0</span><br><span class="line">drf-extensions==0.4.0</span><br><span class="line">et-xmlfile==1.0.1</span><br><span class="line">future==0.17.1</span><br><span class="line">httplib2==0.12.0</span><br><span class="line">idna==2.8</span><br><span class="line">ipython==7.5.0</span><br><span class="line">ipython-genutils==0.2.0</span><br><span class="line">itypes==1.1.0</span><br><span class="line">jdcal==1.4</span><br><span class="line">jedi==0.13.3</span><br><span class="line">Jinja2==2.10</span><br><span class="line">Markdown==3.0.1</span><br><span class="line">MarkupSafe==1.1.0</span><br><span class="line">mysqlclient==1.3.10</span><br><span class="line">oauthlib==3.0.1</span><br><span class="line">odfpy==1.4.0</span><br><span class="line">openpyxl==2.5.14</span><br><span class="line">parso==0.4.0</span><br><span class="line">pexpect==4.7.0</span><br><span class="line">pickleshare==0.7.5</span><br><span class="line">Pillow==5.4.1</span><br><span class="line">prompt-toolkit==2.0.9</span><br><span class="line">ptyprocess==0.6.0</span><br><span class="line">pycryptodome==3.7.3</span><br><span class="line">Pygments==2.4.0</span><br><span class="line">PyJWT==1.7.1</span><br><span class="line">python-dateutil==2.8.0</span><br><span class="line">python3-openid==3.1.0</span><br><span class="line">pytz==2018.9</span><br><span class="line">PyYAML==3.13</span><br><span class="line">qrcode==6.0</span><br><span class="line">raven==6.10.0</span><br><span class="line">redis==3.1.0</span><br><span class="line">requests==2.21.0</span><br><span class="line">requests-oauthlib==1.2.0</span><br><span class="line">six==1.12.0</span><br><span class="line">social-auth-app-django==3.1.0</span><br><span class="line">social-auth-core==3.0.0</span><br><span class="line">tablib==0.12.1</span><br><span class="line">traitlets==4.3.2</span><br><span class="line">unicodecsv==0.14.1</span><br><span class="line">uritemplate==3.0.0</span><br><span class="line">urllib3==1.24.1</span><br><span class="line">wcwidth==0.1.7</span><br><span class="line">xlrd==1.2.0</span><br><span class="line">XlsxWriter==1.1.2</span><br><span class="line">xlwt==1.3.0</span><br></pre></td></tr></table></figure>
+<h2 id="引入Django-suit"><a href="#引入Django-suit" class="headerlink" title="引入Django-suit"></a>引入Django-suit</h2><p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Rhcmtsb3cvZGphbmdvLXN1aXQ=" title="https://github.com/darklow/django-suit">https://github.com/darklow/django-suit<i class="fa fa-external-link"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2Rhcmtsb3cvZGphbmdvLXN1aXQuZ2l0" title="https://github.com/darklow/django-suit.git">https://github.com/darklow/django-suit.git<i class="fa fa-external-link"></i></span></p>
+<h2 id="表结构设计"><a href="#表结构设计" class="headerlink" title="表结构设计"></a>表结构设计</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> unicode_literals</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> get_user_model</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"></span><br><span class="line">User = get_user_model()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">LOCATION = (</span><br><span class="line">    (<span class="string">'NanJing'</span>, <span class="string">'南京'</span>),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">DDNS_STATUS = (</span><br><span class="line">    (<span class="string">'success'</span>, <span class="string">'成功'</span>),</span><br><span class="line">    (<span class="string">'failer'</span>, <span class="string">'失败'</span>)</span><br><span class="line">)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DetailInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    公网IP详情</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    current_ip = models.GenericIPAddressField(verbose_name=<span class="string">u'公网IP'</span>)</span><br><span class="line">    last_ip = models.ForeignKey(<span class="string">'self'</span>, verbose_name=<span class="string">'上一次IP'</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>, related_name=<span class="string">'sub_ip'</span>)</span><br><span class="line">    location = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">u"地点"</span>, choices=LOCATION, default=<span class="string">'NanJing'</span>)</span><br><span class="line">    add_time = models.DateTimeField(default=datetime.now, verbose_name=<span class="string">u'添加时间'</span>)</span><br><span class="line">    user = models.ForeignKey(User, verbose_name=<span class="string">"用户"</span>, null=<span class="literal">True</span>, blank=<span class="literal">True</span>)</span><br><span class="line">    status = models.CharField(max_length=<span class="number">100</span>, verbose_name=<span class="string">'DDNS状态'</span>, choices=DDNS_STATUS, default=<span class="string">'success'</span>)</span><br><span class="line">    log = models.FileField(max_length=<span class="number">100</span>,null=<span class="literal">True</span>, blank=<span class="literal">True</span>,upload_to=<span class="string">"logs/ddns/%Y/%m/%d"</span>,verbose_name=<span class="string">u"ddns日志"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"公网IP"</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.current_ip</span><br></pre></td></tr></table></figure>
+<h5 id="API接口配置"><a href="#API接口配置" class="headerlink" title="API接口配置"></a>API接口配置</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> rest_framework <span class="keyword">import</span> serializers</span><br><span class="line"><span class="keyword">from</span> .models <span class="keyword">import</span> DetailInfo</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DetailInfoSerializer1</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line">    <span class="comment"># 覆盖当前model user字段</span></span><br><span class="line">    user = serializers.HiddenField(default=serializers.CurrentUserDefault())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># API 返回数据，表单不需要提交</span></span><br><span class="line">    add_time = serializers.DateTimeField(read_only=<span class="literal">True</span>, format=<span class="string">"%Y-%m-%d %H:%M:%S"</span>)</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = DetailInfo</span><br><span class="line">        fields = <span class="string">"__all__"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DetailInfoSerializer</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line">    last_ip = DetailInfoSerializer1(read_only=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 覆盖当前model user字段</span></span><br><span class="line">    user = serializers.HiddenField(default=serializers.CurrentUserDefault())</span><br><span class="line"></span><br><span class="line">    <span class="comment"># API 返回数据，表单不需要提交</span></span><br><span class="line">    add_time = serializers.DateTimeField(read_only=<span class="literal">True</span>, format=<span class="string">"%Y-%m-%d %H:%M:%S"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = DetailInfo</span><br><span class="line">        fields = <span class="string">"__all__"</span></span><br></pre></td></tr></table></figure>
+<p>API地址</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cDovL2Fkc2wubGFvaHVsYWIuY29tOjgwOTAv" title="http://adsl.laohulab.com:8090/">http://adsl.laohulab.com:8090/<i class="fa fa-external-link"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL2Fkc2wubGFvaHVsYWIuY29tOjgwOTAvYWRzbC9pbmRleC8=" title="http://adsl.laohulab.com:8090/adsl/index/">http://adsl.laohulab.com:8090/adsl/index/<i class="fa fa-external-link"></i></span></li>
+</ul>
+<h5 id="导入历史数据"><a href="#导入历史数据" class="headerlink" title="导入历史数据"></a>导入历史数据</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">__author__ = <span class="string">'jianhu.yong'</span></span><br><span class="line">__date__ = <span class="string">'19-5-10 下午1:29'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> dateutil.parser <span class="keyword">import</span> parse</span><br><span class="line"></span><br><span class="line">pwd = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line">sys.path.append(pwd)</span><br><span class="line">os.environ.setdefault(<span class="string">"DJANGO_SETTINGS_MODULE"</span>, <span class="string">"adsl.settings"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> django</span><br><span class="line">django.setup()</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> detail.models <span class="keyword">import</span> DetailInfo</span><br><span class="line"></span><br><span class="line">f = open(os.path.join(pwd, <span class="string">'db_tools/data/adsl.txt'</span>), <span class="string">'rb'</span>)</span><br><span class="line">wan_ips = f.readlines()</span><br><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> enumerate(wan_ips):</span><br><span class="line">    current_ip = str(value, encoding=<span class="string">'utf-8'</span>).strip().split()[<span class="number">-1</span>]</span><br><span class="line">    add_time = parse(<span class="string">" "</span>.join(str(value, encoding=<span class="string">'utf-8'</span>).strip().split()[<span class="number">0</span>:<span class="number">-1</span>]))</span><br><span class="line">    ins, status = DetailInfo.objects.get_or_create(current_ip=current_ip, add_time=add_time)</span><br><span class="line"></span><br><span class="line">    ins.current_ip = current_ip</span><br><span class="line">    ins.add_time = add_time</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> index != <span class="number">0</span>:</span><br><span class="line">        last_ip = str(wan_ips[index<span class="number">-1</span>], encoding=<span class="string">'utf-8'</span>).split()[<span class="number">-1</span>]</span><br><span class="line">        add_time = parse(<span class="string">" "</span>.join(str(wan_ips[index<span class="number">-1</span>], encoding=<span class="string">'utf-8'</span>).split()[<span class="number">0</span>:<span class="number">-1</span>]))</span><br><span class="line">        ins.last_ip, status = DetailInfo.objects.get_or_create(current_ip=last_ip, add_time=add_time)</span><br><span class="line">    ins.save()</span><br></pre></td></tr></table></figure>
+<h5 id="ADSL更新脚本"><a href="#ADSL更新脚本" class="headerlink" title="ADSL更新脚本"></a>ADSL更新脚本</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time    : 2019/3/10 17:11</span></span><br><span class="line"><span class="comment"># @Author  : Jianhu Yong</span></span><br><span class="line"><span class="comment"># @File    : update_ddns.py</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">good: 更新成功，域名的IP地址已经更新，同时会返回本次更新成功的IP，用空格隔开，如：good 1.2.3.4</span></span><br><span class="line"><span class="string">nochg: 更新成功，但没有改变IP。一般这种情况为本次提交的IP跟上一次的一样</span></span><br><span class="line"><span class="string">notfqdn: 未有激活花生壳的域名</span></span><br><span class="line"><span class="string">nohost: 域名不存在或未激活花生壳</span></span><br><span class="line"><span class="string">abuse: 请求失败，频繁请求或验证失败时会出现</span></span><br><span class="line"><span class="string">!donator: 表示此功能需要付费用户才能使用，如https</span></span><br><span class="line"><span class="string">911: 系统错误</span></span><br><span class="line"><span class="string">doc: http://service.oray.com/question/3820.html</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.multipart <span class="keyword">import</span> MIMEMultipart</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">from</span> logging <span class="keyword">import</span> FileHandler</span><br><span class="line"><span class="keyword">from</span> logging <span class="keyword">import</span> Formatter</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">import</span> configparser</span><br><span class="line"><span class="keyword">except</span> ImportError:</span><br><span class="line">    <span class="keyword">import</span> ConfigParser <span class="keyword">as</span> configparser</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Adsl</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, domain, username, password, check_url, update_url, token)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        初始化参数</span></span><br><span class="line"><span class="string">        :param domain:</span></span><br><span class="line"><span class="string">        :param username:</span></span><br><span class="line"><span class="string">        :param password:</span></span><br><span class="line"><span class="string">        :param check_url:</span></span><br><span class="line"><span class="string">        :param update_url:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        self.domain = domain</span><br><span class="line">        self.username = username</span><br><span class="line">        self.password = password</span><br><span class="line">        self.check_url = check_url</span><br><span class="line">        self.update_url = update_url</span><br><span class="line">        self.token = token</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_current_ip</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        获取当前公网IP地址</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        res = requests.get(url=self.check_url)</span><br><span class="line">        <span class="keyword">if</span> res.status_code == <span class="number">200</span>:</span><br><span class="line">            myip = re.search(<span class="string">'\d+\.\d+\.\d+\.\d+'</span>, res.text).group()</span><br><span class="line">            <span class="keyword">return</span> myip</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self, current_ip, last_ip)</span>:</span></span><br><span class="line">        <span class="string">'''</span></span><br><span class="line"><span class="string">        更新公网IP地址至花生壳服务器</span></span><br><span class="line"><span class="string">        :param myip:</span></span><br><span class="line"><span class="string">        :return:</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line">        code = <span class="string">"&#123;&#125;:&#123;&#125;"</span>.format(self.username, self.password)</span><br><span class="line">        code = code.encode()</span><br><span class="line">        auth_code = base64.b64encode(code)</span><br><span class="line">        header = &#123;</span><br><span class="line">            <span class="string">'Host'</span>: <span class="string">'ddns.oray.com'</span>,</span><br><span class="line">            <span class="string">'Authorization'</span>: <span class="string">'Basic &#123;&#125;'</span>.format(auth_code.decode()),</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Oray'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        params = &#123;</span><br><span class="line">            <span class="string">'hostname'</span>: self.domain,</span><br><span class="line">            <span class="string">'myip'</span>: current_ip</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        res = requests.get(url=self.update_url, params=params, headers=header)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> res.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="string">'good'</span> <span class="keyword">in</span> res.text:</span><br><span class="line">                status = <span class="string">'good'</span></span><br><span class="line">            <span class="keyword">elif</span> <span class="string">'nochg'</span> <span class="keyword">in</span> res.text:</span><br><span class="line">                status = <span class="string">'nochg'</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                status = <span class="string">'failer'</span></span><br><span class="line">            self._create_log(res.text)</span><br><span class="line">            self._create_recode(current_ip)</span><br><span class="line">            self._sent_mail(current_ip, last_ip, status)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_create_recode</span><span class="params">(self, current_ip)</span>:</span></span><br><span class="line">        api = <span class="string">'http://127.0.0.1:8000/ip/'</span></span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">"current_ip"</span>: current_ip,</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 构造请求头</span></span><br><span class="line">        <span class="comment"># headers = &#123;'Content-Type': 'application/json'&#125;</span></span><br><span class="line">        headers = &#123;&#125;</span><br><span class="line">        headers[<span class="string">'Authorization'</span>] = <span class="string">'JWT &#123;&#125;'</span>.format(self.token)</span><br><span class="line">        files = &#123;</span><br><span class="line">             <span class="string">"log"</span>: open(os.path.join(base_dir, <span class="string">'ddns.log'</span>))</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        res = requests.post(api, data=data, headers=headers, files=files)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_create_log</span><span class="params">(self, res)</span>:</span></span><br><span class="line">        LOG_FORMAT = (<span class="string">"%(levelname)s | %(asctime)s | %(message)s"</span>)</span><br><span class="line">        LOG_LEVEL = logging.INFO</span><br><span class="line"></span><br><span class="line">        <span class="comment"># messaging logger</span></span><br><span class="line">        INFO_LOG_FILE = os.path.join(base_dir, <span class="string">'ddns.log'</span>)</span><br><span class="line">        info_log_logger = logging.getLogger(INFO_LOG_FILE)</span><br><span class="line">        info_log_logger.setLevel(LOG_LEVEL)</span><br><span class="line">        info_log_logger_file_handler = FileHandler(INFO_LOG_FILE, mode=<span class="string">'w'</span>)</span><br><span class="line">        info_log_logger_file_handler.setLevel(LOG_LEVEL)</span><br><span class="line">        info_log_logger_file_handler.setFormatter(Formatter(LOG_FORMAT))</span><br><span class="line">        info_log_logger.addHandler(info_log_logger_file_handler)</span><br><span class="line"></span><br><span class="line">        info_log_logger.info(res)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_sent_mail</span><span class="params">(self, current_ip, last_ip, status)</span>:</span></span><br><span class="line">        auth_code = <span class="string">"glnaxjbqiicbbjgj"</span></span><br><span class="line">        mail_host = <span class="string">'smtp.qq.com'</span></span><br><span class="line">        mail_user = <span class="string">'120731842@qq.com'</span></span><br><span class="line">        mail_pass = auth_code</span><br><span class="line">        mail_sender = mail_user</span><br><span class="line">        <span class="comment">#mail_receivers = ['jianhu.yong@genewiz.com.cn']</span></span><br><span class="line">        mail_receivers = [<span class="string">'120731842@qq.com'</span>, <span class="string">'jianhu.yong@genewiz.com.cn'</span>]</span><br><span class="line"></span><br><span class="line">        subject = <span class="string">'【LAOHULAB】公网IP变更通知'</span></span><br><span class="line">        message = MIMEMultipart()</span><br><span class="line"></span><br><span class="line">        mail_msg = <span class="string">'''</span></span><br><span class="line"><span class="string">        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;</span></span><br><span class="line"><span class="string">        &lt;table width="420" cellpadding="0" cellspacing="0" border="0" align="left" style="border:1px solid #505050; "&gt;</span></span><br><span class="line"><span class="string">            &lt;tr&gt;</span></span><br><span class="line"><span class="string">                &lt;td width="420"&gt;</span></span><br><span class="line"><span class="string">                    &lt;table width="420" cellpadding="0" cellspacing="0" border="0" align="left" bgcolor="#0072c6"&gt;</span></span><br><span class="line"><span class="string">                        &lt;tr&gt;</span></span><br><span class="line"><span class="string">                            &lt;td width="420" bgcolor="#0072c6"&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                                &lt;table width="420" cellpadding="0" cellspacing="0" border="0" align="center" bgcolor="#0072c6"&gt;</span></span><br><span class="line"><span class="string">                                    &lt;tr&gt;</span></span><br><span class="line"><span class="string">                                        &lt;td width="30" valign="middle" style="color:#0072c6; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; font-weight:bold; padding:25px 0 15px;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                                        &lt;td width="360" valign="middle" style="color:#ffffff; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; font-weight:bold; padding:25px 0 15px;"&gt;</span></span><br><span class="line"><span class="string">                                            &lt;img height="35" src="https://www.genewiz.com.cn//assets/img/gwz/GWLOGO_TOPLEFT.PNG" alt="GENEWIZ" border="0"&gt;</span></span><br><span class="line"><span class="string">                                        &lt;/td&gt;</span></span><br><span class="line"><span class="string">                                        &lt;td width="30" valign="middle" style="color:#0072c6; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; font-weight:bold; padding:25px 0 15px;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                                    &lt;/tr&gt;</span></span><br><span class="line"><span class="string">                                    &lt;tr&gt;</span></span><br><span class="line"><span class="string">                                        &lt;td width="30" valign="middle" style="color:#0072c6; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; font-weight:bold; padding:5px 0 25px;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                                        &lt;td width="360" valign="middle" style="color:#ffffff; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; font-weight:bold; padding:5px 0 25px;"&gt;</span></span><br><span class="line"><span class="string">                                            &lt;h1 style="color:#ffffff; font-family:'Segoe UI Light','Segoe UI',Arial,sans-serif; font-size:20px; font-weight:100; line-height:40px; margin:0"&gt;</span></span><br><span class="line"><span class="string">                                                公网IP地址变更通知！</span></span><br><span class="line"><span class="string">                                            &lt;/h1&gt;</span></span><br><span class="line"><span class="string">                                        &lt;/td&gt;</span></span><br><span class="line"><span class="string">                                        &lt;td width="30" valign="middle" style="color:#0072c6; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; font-weight:bold; padding:5px 0 25px;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                                    &lt;/tr&gt;</span></span><br><span class="line"><span class="string">                                &lt;/table&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                            &lt;/td&gt;</span></span><br><span class="line"><span class="string">                        &lt;/tr&gt;</span></span><br><span class="line"><span class="string">                    &lt;/table&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                    &lt;table width="420" cellpadding="0" cellspacing="0" border="0" align="center"&gt;</span></span><br><span class="line"><span class="string">                        &lt;tr&gt;</span></span><br><span class="line"><span class="string">                            &lt;td width="30" valign="middle" bgcolor="#e6e6e7" style="color:#e6e6e7; border-bottom:1px solid #d8d8d8;font-family:'Segoe UI',Arial,sans-serif; font-size:12px; padding:15px 0;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                            &lt;td width="360" valign="middle" bgcolor="#e6e6e7" style="color:#505050;border-bottom:1px solid #d8d8d8; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; padding:15px 0 20px;"&gt;</span></span><br><span class="line"><span class="string">                                &lt;h2 style="font-family:'Segoe UI Light','Segoe UI',Arial,sans-serif; font-size:20px; font-weight:100; line-height:30px; margin:0; padding:0;"&gt;</span></span><br><span class="line"><span class="string">                                    ADSL</span></span><br><span class="line"><span class="string">                                &lt;/h2&gt;</span></span><br><span class="line"><span class="string">                                &lt;p&gt;</span></span><br><span class="line"><span class="string">                                    &lt;strong&gt;状态：&lt;/strong&gt; &#123;0&#125;</span></span><br><span class="line"><span class="string">                                &lt;/p&gt;</span></span><br><span class="line"><span class="string">                                &lt;p&gt;</span></span><br><span class="line"><span class="string">                                    &lt;strong&gt;域名：&lt;/strong&gt; &#123;1&#125;</span></span><br><span class="line"><span class="string">                                &lt;/p&gt;        </span></span><br><span class="line"><span class="string">                                &lt;p&gt;</span></span><br><span class="line"><span class="string">                                    &lt;strong&gt;当前IP：&lt;/strong&gt; &#123;2&#125;</span></span><br><span class="line"><span class="string">                                &lt;/p&gt;</span></span><br><span class="line"><span class="string">                                &lt;p&gt;</span></span><br><span class="line"><span class="string">                                    &lt;strong&gt;上一次IP：&lt;/strong&gt; &#123;3&#125;</span></span><br><span class="line"><span class="string">                                &lt;/p&gt;                                                                                     </span></span><br><span class="line"><span class="string">                                &lt;p&gt;</span></span><br><span class="line"><span class="string">                                    &lt;strong&gt;时间：&lt;/strong&gt; &#123;4&#125;</span></span><br><span class="line"><span class="string">                                &lt;/p&gt;</span></span><br><span class="line"><span class="string">                            &lt;/td&gt;</span></span><br><span class="line"><span class="string">                            &lt;td width="30" valign="middle" bgcolor="#e6e6e7" style="color:#e6e6e7; border-bottom:1px solid #d8d8d8;font-family:'Segoe UI',Arial,sans-serif; font-size:12px; padding:15px 0;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                        &lt;/tr&gt;</span></span><br><span class="line"><span class="string">                    &lt;/table&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                    &lt;table width="420" cellpadding="0" cellspacing="0" border="0" align="left"&gt;</span></span><br><span class="line"><span class="string">                        &lt;tr&gt;</span></span><br><span class="line"><span class="string">                            &lt;td width="30" valign="middle" style="color:#ffffff; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; padding:10px 0;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                            &lt;td width="360" valign="middle" style="color:#505050; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; padding:20px 0;"&gt;</span></span><br><span class="line"><span class="string">                                &lt;table width="360" cellpadding="0" cellspacing="0" border="0"&gt;</span></span><br><span class="line"><span class="string">                                    &lt;tr&gt;</span></span><br><span class="line"><span class="string">                                        &lt;td width="360" valign="top" style="color:#505050; font-family:'Segoe UI Light','Segoe UI',Arial,sans-serif; font-size:12px; font-weight:100;"&gt;</span></span><br><span class="line"><span class="string">                                            &lt;p style="color:red"&gt;</span></span><br><span class="line"><span class="string">                                                本邮件是由系统自动发出的，请不要回复本邮件！</span></span><br><span class="line"><span class="string">                                            &lt;/p&gt;</span></span><br><span class="line"><span class="string">                                            &lt;p&gt;LAOHULAB | 南京&lt;/p&gt;</span></span><br><span class="line"><span class="string">                                            &lt;p&gt;Copyright© &#123;5&#125; LAOHULAB Power By Jianhu Yong&lt;/p&gt;</span></span><br><span class="line"><span class="string">                                        &lt;/td&gt;</span></span><br><span class="line"><span class="string">                                    &lt;/tr&gt;</span></span><br><span class="line"><span class="string">                                &lt;/table&gt;</span></span><br><span class="line"><span class="string">                            &lt;/td&gt;</span></span><br><span class="line"><span class="string">                            &lt;td width="30" valign="middle" style="color:#ffffff; font-family:'Segoe UI',Arial,sans-serif; font-size:12px; padding:10px 0;"&gt;&amp;ndash;&lt;/td&gt;</span></span><br><span class="line"><span class="string">                        &lt;/tr&gt;</span></span><br><span class="line"><span class="string">                    &lt;/table&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                &lt;/td&gt;</span></span><br><span class="line"><span class="string">            &lt;/tr&gt;</span></span><br><span class="line"><span class="string">        &lt;/table&gt;</span></span><br><span class="line"><span class="string">                '''</span>.format(status, self.domain, current_ip, last_ip, datetime.now().strftime(<span class="string">"%Y-%m-%d %H:%I:%S"</span>), datetime.now().year)</span><br><span class="line"></span><br><span class="line">        message.attach(MIMEText(mail_msg, <span class="string">'html'</span>, <span class="string">'utf-8'</span>))</span><br><span class="line"></span><br><span class="line">        att1 = MIMEText(open(os.path.join(base_dir, <span class="string">'ddns.log'</span>)).read(), <span class="string">'base64'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">        att1[<span class="string">"Content-Type"</span>] = <span class="string">'application/octet-stream'</span></span><br><span class="line">        att1[<span class="string">"Content-Disposition"</span>] = <span class="string">'attachment; filename="ddns.log"'</span></span><br><span class="line">        message.attach(att1)</span><br><span class="line">        <span class="comment"># message = MIMEText(mail_msg, 'html', 'utf-8')</span></span><br><span class="line">        message[<span class="string">'From'</span>] = Header(mail_sender)</span><br><span class="line">        message[<span class="string">'To'</span>] = Header(<span class="string">','</span>.join(mail_receivers))</span><br><span class="line">        message[<span class="string">'Subject'</span>] = Header(subject, <span class="string">'utf-8'</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            smtpObj = smtplib.SMTP_SSL()</span><br><span class="line">            smtpObj.connect(mail_host, <span class="number">465</span>)</span><br><span class="line">            smtpObj.login(mail_user,mail_pass)</span><br><span class="line">            smtpObj.sendmail(mail_sender, mail_receivers, message.as_string())</span><br><span class="line">            smtpObj.close()</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            print(e)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取项目根目录</span></span><br><span class="line">    base_dir = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取配置文件信息</span></span><br><span class="line">    config = configparser.ConfigParser()</span><br><span class="line">    <span class="keyword">with</span> open(os.path.join(base_dir, <span class="string">'ddns.ini'</span>)) <span class="keyword">as</span> fp:</span><br><span class="line">        config.read_file(fp)</span><br><span class="line"></span><br><span class="line">    domain = config.get(<span class="string">'ddns'</span>, <span class="string">'domain'</span>)</span><br><span class="line">    username = config.get(<span class="string">'ddns'</span>, <span class="string">'username'</span>)</span><br><span class="line">    password = config.get(<span class="string">'ddns'</span>, <span class="string">'password'</span>)</span><br><span class="line">    check_url = config.get(<span class="string">'ddns'</span>, <span class="string">'check_url'</span>)</span><br><span class="line">    update_url = config.get(<span class="string">'ddns'</span>, <span class="string">'update_url'</span>)</span><br><span class="line">    list_url = config.get(<span class="string">'ddns'</span>, <span class="string">'list_url'</span>)</span><br><span class="line">    login_url = config.get(<span class="string">'ddns'</span>, <span class="string">'login_url'</span>)</span><br><span class="line">    adsl_api = config.get(<span class="string">'ddns'</span>, <span class="string">'adsl_api'</span>)</span><br><span class="line">    api_username = config.get(<span class="string">'api-auth'</span>, <span class="string">'username'</span>)</span><br><span class="line">    api_password = config.get(<span class="string">'api-auth'</span>, <span class="string">'password'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 登陆验证</span></span><br><span class="line">    login_data = &#123;</span><br><span class="line">        <span class="string">'username'</span>: api_username,</span><br><span class="line">        <span class="string">'password'</span>: api_password</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 构造请求头</span></span><br><span class="line">    headers = &#123;<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取 JWT token</span></span><br><span class="line">    res = requests.post(login_url, data=json.dumps(login_data), headers=headers)</span><br><span class="line">    jwt_token = json.loads(res.text).get(<span class="string">'token'</span>)</span><br><span class="line">    headers[<span class="string">'Authorization'</span>] = <span class="string">'JWT &#123;&#125;'</span>.format(jwt_token)</span><br><span class="line"></span><br><span class="line">    adsl_ins = Adsl(</span><br><span class="line">        domain=domain,</span><br><span class="line">        username=username,</span><br><span class="line">        password=password,</span><br><span class="line">        check_url=check_url,</span><br><span class="line">        update_url=update_url,</span><br><span class="line">        token=jwt_token</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    current_ip = adsl_ins.get_current_ip()</span><br><span class="line"></span><br><span class="line">    res = requests.get(adsl_api, headers=headers)</span><br><span class="line">    res = json.loads(res.text)</span><br><span class="line">    last_ip = res.get(<span class="string">'results'</span>)[<span class="number">0</span>].get(<span class="string">'current_ip'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> current_ip != last_ip:</span><br><span class="line">        adsl_ins.update(current_ip, last_ip)</span><br></pre></td></tr></table></figure>
+<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[ddns]</span></span><br><span class="line"><span class="attr">domain</span> = laohulab.com</span><br><span class="line"><span class="attr">username</span> = xxxx</span><br><span class="line"><span class="attr">password</span> = xxxx</span><br><span class="line"><span class="attr">check_url</span> = http://ddns.oray.com/checkip</span><br><span class="line"><span class="attr">update_url</span> = http://ddns.oray.com/ph/update/</span><br><span class="line"><span class="attr">list_url</span> = http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8090</span>/adsl/index/</span><br><span class="line"><span class="attr">login_url</span>  = http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8090</span>/login/</span><br><span class="line"><span class="attr">adsl_api</span> = http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8090</span>/ip/</span><br><span class="line"></span><br><span class="line"><span class="section">[api-auth]</span></span><br><span class="line"><span class="attr">username</span> = xxxx</span><br><span class="line"><span class="attr">password</span> = xxxx</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/uncategorized/2604242901.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -534,12 +721,24 @@
                 
               
 
-              <time title="创建时间：2019-05-05 08:52:59 / 修改时间：08:53:58" itemprop="dateCreated datePublished" datetime="2019-05-05T08:52:59+08:00">2019-05-05</time>
+              <time title="创建时间：2019-05-05 08:52:59" itemprop="dateCreated datePublished" datetime="2019-05-05T08:52:59+08:00">2019-05-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-06 21:05:04" itemprop="dateModified" datetime="2019-05-06T21:05:04+08:00">2019-05-06</time>
               
             
           </span>
@@ -1261,203 +1460,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/SSL/1808019060.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jianhu Yong">
-      <meta itemprop="description" content="It's better when it's simple">
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Happy Every Day">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/SSL/1808019060.html" class="post-title-link" itemprop="url">自签名ssl证书</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-05-04 15:30:00 / 修改时间：21:27:37" itemprop="dateCreated datePublished" datetime="2019-05-04T15:30:00+08:00">2019-05-04</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSL/" itemprop="url" rel="index"><span itemprop="name">SSL</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">1.9k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">2 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="定制个人签名证书"><a href="#定制个人签名证书" class="headerlink" title="定制个人签名证书"></a>定制个人签名证书</h5><h6 id="生成私钥文件"><a href="#生成私钥文件" class="headerlink" title="生成私钥文件"></a>生成私钥文件</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl genrsa -des3 -out www.laohulab.com.key 2048</span><br></pre></td></tr></table></figure>
-<h6 id="移除私钥密码"><a href="#移除私钥密码" class="headerlink" title="移除私钥密码"></a>移除私钥密码</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl rsa -<span class="keyword">in</span> www.laohulab.com.key -out www.laohulab.com.key</span><br></pre></td></tr></table></figure>
-<h6 id="生成自签名证书"><a href="#生成自签名证书" class="headerlink" title="生成自签名证书"></a>生成自签名证书</h6><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl req -new -sha256  \</span><br><span class="line">    -x509 \</span><br><span class="line">    -days 10000 \</span><br><span class="line">    -key www.laohulab.com.key \</span><br><span class="line">    -subj <span class="string">"/C=CN/ST=BeiJing/L=Beijing/O=QUNAR/OU=FE/CN=www.laohulab.com"</span> \</span><br><span class="line">    -extensions SAN \</span><br><span class="line">    -config &lt;(cat ./openssl.cnf &lt;(<span class="built_in">printf</span> <span class="string">"[SAN]\nsubjectAltName=DNS.1:www:laohulab.com,DNS.2:wiki.laohulab.com,DNS.3:*.laohulab.com"</span>)) \</span><br><span class="line">    -out www.laohulab.com.crt</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/SSL/1808019060.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1506,7 +1508,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1751,7 +1753,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">328k</span>
+    <span title="站点总字数">346k</span>
   
 
   
@@ -1760,7 +1762,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:58</span>
+    <span title="站点阅读时长">5:15</span>
   
 </div>
 

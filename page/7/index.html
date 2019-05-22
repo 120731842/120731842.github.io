@@ -343,7 +343,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">66</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">67</span></a>
 
   </li>
         
@@ -473,6 +473,191 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/uncategorized/2252267221.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jianhu Yong">
+      <meta itemprop="description" content="It's better when it's simple">
+      <meta itemprop="image" content="/images/timg.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Happy Every Day">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/uncategorized/2252267221.html" class="post-title-link" itemprop="url">requests实现windows身份验证登录</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-21 15:45:41" itemprop="dateCreated datePublished" datetime="2018-06-21T15:45:41+08:00">2018-06-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-05 08:31:24" itemprop="dateModified" datetime="2019-05-05T08:31:24+08:00">2019-05-05</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">227</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">1 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="安装ntlm"><a href="#安装ntlm" class="headerlink" title=" 安装ntlm"></a><i class="fa fa-caret-right fa-lg"></i> 安装ntlm</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install requests_ntlm</span><br></pre></td></tr></table></figure>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlcXVlc3RzL3JlcXVlc3RzLW50bG0=" title="https://github.com/requests/requests-ntlm">https://github.com/requests/requests-ntlm<i class="fa fa-external-link"></i></span></p>
+<h5 id="使用"><a href="#使用" class="headerlink" title=" 使用"></a><i class="fa fa-caret-right fa-lg"></i> 使用</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">from requests_ntlm import HttpNtlmAuth</span><br><span class="line"></span><br><span class="line">requests.get(<span class="string">"http://ntlm_protected_site.com"</span>,auth=HttpNtlmAuth(<span class="string">'domain\\username'</span>,<span class="string">'password'</span>))</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1299,192 +1484,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.laohulab.com/uncategorized/814301255.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jianhu Yong">
-      <meta itemprop="description" content="It's better when it's simple">
-      <meta itemprop="image" content="/images/timg.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Happy Every Day">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/uncategorized/814301255.html" class="post-title-link" itemprop="url">linux挂载ntfs设备</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-20 13:58:20" itemprop="dateCreated datePublished" datetime="2018-06-20T13:58:20+08:00">2018-06-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-05-05 08:30:33" itemprop="dateModified" datetime="2019-05-05T08:30:33+08:00">2019-05-05</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-symbolscount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">本文字数：</span>
-                
-                <span title="本文字数">298</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">1 分钟</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="下载软件包"><a href="#下载软件包" class="headerlink" title=" 下载软件包"></a><i class="fa fa-caret-right fa-lg"></i> 下载软件包</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2016.2.22.tgz</span><br></pre></td></tr></table></figure>
-<h5 id="安装依赖"><a href="#安装依赖" class="headerlink" title=" 安装依赖"></a><i class="fa fa-caret-right fa-lg"></i> 安装依赖</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install gcc gcc-c++</span><br></pre></td></tr></table></figure>
-<h5 id="编译安装"><a href="#编译安装" class="headerlink" title=" 编译安装"></a><i class="fa fa-caret-right fa-lg"></i> 编译安装</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar zxvf ntfs-3g_ntfsprogs-2016.2.22.tgz</span><br><span class="line"><span class="built_in">cd</span> ntfs-3g_ntfsprogs-2016.2.22</span><br><span class="line">./configure --prefix=/opt/genewiznj/ntfs-3g</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-<h5 id="挂载测试"><a href="#挂载测试" class="headerlink" title=" 挂载测试"></a><i class="fa fa-caret-right fa-lg"></i> 挂载测试</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount -t ntfs-3g /dev/sdb1 /opt/genewiznj/usb</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1533,7 +1532,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">66</span>
+                    <span class="site-state-item-count">67</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1778,7 +1777,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">328k</span>
+    <span title="站点总字数">346k</span>
   
 
   
@@ -1787,7 +1786,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">4:58</span>
+    <span title="站点阅读时长">5:15</span>
   
 </div>
 
